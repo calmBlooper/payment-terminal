@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>799</width>
+    <height>729</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #706993;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="mob_button">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>120</y>
+      <width>161</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+outline: 0;
+border-color: black;
+border-width: 1px;
+border-style: solid;
+border-radius: 20px;
+border-bottom-left-radius: 12px;
+border-bottom-right-radius: 12px;
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/mob-logo.jpg</normaloff>../icons/mob-logo.jpg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>150</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="digipay_label">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>30</y>
+      <width>221</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #F4E8C1;
+border-style: solid;
+border-width: 3px;
+border-radius: 8px</string>
+    </property>
+    <property name="text">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#d30000;&quot;&gt;digi&lt;/span&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#01b80d;&quot;&gt;Pay&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="mob_lable">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>230</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <italic>false</italic>
+      <underline>false</underline>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">outline: 0;
+background-color: #331E38;
+color: white;
+border-style: solid;
+border-color: black;
+border-width: 3px;
+border-top-width: 1px;
+border-bottom-left-radius: 8px;
+border-bottom-right-radius: 8px;</string>
+    </property>
+    <property name="text">
+     <string>Поповнити мобільний</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="card_lable">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>230</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">outline: 0;
+background-color: #331E38;
+color: white;
+border-style: solid;
+border-color: black;
+border-width: 3px;
+border-top-width: 1px;
+border-bottom-left-radius: 8px;
+border-bottom-right-radius: 8px;</string>
+    </property>
+    <property name="text">
+     <string>Поповнити карту</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="card_button">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>120</y>
+      <width>161</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+outline: 0;
+border-color: black;
+border-width: 1px;
+border-style: solid;
+border-radius: 20px;
+border-bottom-left-radius: 12px;
+border-bottom-right-radius: 12px;
+
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/card_logo.png</normaloff>../icons/card_logo.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>150</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="vodokanal_lable">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>230</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">outline: 0;
+background-color: #331E38;
+color: white;
+border-style: solid;
+border-color: black;
+border-width: 3px;
+border-top-width: 1px;
+border-bottom-left-radius: 8px;
+border-bottom-right-radius: 8px;</string>
+    </property>
+    <property name="text">
+     <string>Київводоканал</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="vodokanal_button">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>120</y>
+      <width>161</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+outline: 0;
+border-color: black;
+border-width: 1px;
+border-style: solid;
+border-radius: 20px;
+border-bottom-left-radius: 12px;
+border-bottom-right-radius: 12px;
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/vodokanal_logo.png</normaloff>../icons/vodokanal_logo.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>150</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="steam_lable">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>230</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">outline: 0;
+background-color: #331E38;
+color: white;
+border-style: solid;
+border-color: black;
+border-width: 3px;
+border-top-width: 1px;
+border-bottom-left-radius: 8px;
+border-bottom-right-radius: 8px;</string>
+    </property>
+    <property name="text">
+     <string>Steam</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="steam_button">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>120</y>
+      <width>161</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+outline: 0;
+border-color: black;
+border-width: 1px;
+border-style: solid;
+border-radius: 20px;
+border-bottom-left-radius: 12px;
+border-bottom-right-radius: 12px;
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/steam_logo.jpg</normaloff>../icons/steam_logo.jpg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>150</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="mob_folder_button">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>320</y>
+      <width>181</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #A0C1B9;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-top-width: 3px;
+border-left-width: 3px;
+border-right-width: 3px;
+border-color:  #70A0AF;
+border-style:solid;
+outline: 0;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/phone_logo.png</normaloff>../icons/phone_logo.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="mob_folder_label">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>430</y>
+      <width>181</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #A0C1B9;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-width: 3px;
+border-left-width: 3px;
+border-right-width: 3px;
+border-color:  #70A0AF;
+border-style:solid;
+outline: 0;</string>
+    </property>
+    <property name="text">
+     <string>Мобільний зв'язок</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bank_folder_label">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>430</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #A0C1B9;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-width: 3px;
+border-left-width: 3px;
+border-right-width: 3px;
+border-color:  #70A0AF;
+border-style:solid;
+outline: 0;</string>
+    </property>
+    <property name="text">
+     <string>Платіжні системи</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bank_folder_button">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>320</y>
+      <width>191</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #A0C1B9;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-top-width: 3px;
+border-left-width: 3px;
+border-right-width: 3px;
+border-color:  #70A0AF;
+border-style:solid;
+outline: 0;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/dollar.png</normaloff>../icons/dollar.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="com_folder_label">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>430</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #A0C1B9;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-width: 3px;
+border-left-width: 3px;
+border-right-width: 3px;
+border-color:  #70A0AF;
+border-style:solid;
+outline: 0;</string>
+    </property>
+    <property name="text">
+     <string>Комунальні послуги</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="com_folder_button">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>320</y>
+      <width>171</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #A0C1B9;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-top-width: 3px;
+border-left-width: 3px;
+border-right-width: 3px;
+border-color:  #70A0AF;
+border-style:solid;
+outline: 0;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/сom_logo.png</normaloff>../icons/сom_logo.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="game_folder_label">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>610</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #A0C1B9;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-width: 3px;
+border-left-width: 3px;
+border-right-width: 3px;
+border-color:  #70A0AF;
+border-style:solid;
+outline: 0;</string>
+    </property>
+    <property name="text">
+     <string>Ігри</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="game_folder_button">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>500</y>
+      <width>171</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #A0C1B9;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-top-width: 3px;
+border-left-width: 3px;
+border-right-width: 3px;
+border-color:  #70A0AF;
+border-style:solid;
+outline: 0;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/game_logo2.png</normaloff>../icons/game_logo2.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>150</width>
+      <height>100</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="charity_folder_label">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>610</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #A0C1B9;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-width: 3px;
+border-left-width: 3px;
+border-right-width: 3px;
+border-color:  #70A0AF;
+border-style:solid;
+outline: 0;</string>
+    </property>
+    <property name="text">
+     <string>Благодійність</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="charity_folder_button">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>500</y>
+      <width>171</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #A0C1B9;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-top-width: 3px;
+border-left-width: 3px;
+border-right-width: 3px;
+border-color:  #70A0AF;
+border-style:solid;
+outline: 0;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../icons/charity_logo.png</normaloff>../icons/charity_logo.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <zorder>digipay_label</zorder>
+   <zorder>mob_lable</zorder>
+   <zorder>card_lable</zorder>
+   <zorder>card_button</zorder>
+   <zorder>vodokanal_lable</zorder>
+   <zorder>vodokanal_button</zorder>
+   <zorder>steam_lable</zorder>
+   <zorder>steam_button</zorder>
+   <zorder>mob_button</zorder>
+   <zorder>mob_folder_button</zorder>
+   <zorder>mob_folder_label</zorder>
+   <zorder>bank_folder_label</zorder>
+   <zorder>bank_folder_button</zorder>
+   <zorder>com_folder_label</zorder>
+   <zorder>com_folder_button</zorder>
+   <zorder>game_folder_label</zorder>
+   <zorder>game_folder_button</zorder>
+   <zorder>charity_folder_label</zorder>
+   <zorder>charity_folder_button</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>799</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>mob_lable</sender>
+   <signal>clicked()</signal>
+   <receiver>mob_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>117</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>card_lable</sender>
+   <signal>clicked()</signal>
+   <receiver>card_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>297</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>230</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>vodokanal_lable</sender>
+   <signal>clicked()</signal>
+   <receiver>vodokanal_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>504</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>steam_lable</sender>
+   <signal>clicked()</signal>
+   <receiver>steam_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>663</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>657</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mob_folder_label</sender>
+   <signal>clicked()</signal>
+   <receiver>mob_folder_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>144</x>
+     <y>469</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>146</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bank_folder_label</sender>
+   <signal>clicked()</signal>
+   <receiver>bank_folder_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>382</x>
+     <y>481</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>382</x>
+     <y>423</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>com_folder_label</sender>
+   <signal>clicked()</signal>
+   <receiver>com_folder_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>653</x>
+     <y>480</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>645</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>game_folder_label</sender>
+   <signal>clicked()</signal>
+   <receiver>game_folder_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>288</x>
+     <y>650</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>288</x>
+     <y>619</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>charity_folder_label</sender>
+   <signal>clicked()</signal>
+   <receiver>charity_folder_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>525</x>
+     <y>658</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>611</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
