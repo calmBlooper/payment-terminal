@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
-    <height>729</height>
+    <width>800</width>
+    <height>730</height>
    </rect>
   </property>
   <property name="font">
@@ -56,8 +56,8 @@ border-bottom-right-radius: 12px;
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../icons/mob-logo.jpg</normaloff>../icons/mob-logo.jpg</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/icons/mob-logo.jpg</normaloff>:/icons/mob-logo.jpg</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -206,8 +206,8 @@ border-bottom-right-radius: 12px;
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../icons/card_logo.png</normaloff>../icons/card_logo.png</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/icons/card_logo.png</normaloff>:/icons/card_logo.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -291,8 +291,8 @@ border-bottom-right-radius: 12px;
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../icons/vodokanal_logo.png</normaloff>../icons/vodokanal_logo.png</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/icons/vodokanal_logo.png</normaloff>:/icons/vodokanal_logo.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -376,8 +376,8 @@ border-bottom-right-radius: 12px;
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../icons/steam_logo.jpg</normaloff>../icons/steam_logo.jpg</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/icons/steam_logo.jpg</normaloff>:/icons/steam_logo.jpg</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -422,8 +422,8 @@ outline: 0;</string>
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../icons/phone_logo.png</normaloff>../icons/phone_logo.png</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/icons/phone_logo.png</normaloff>:/icons/phone_logo.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -536,8 +536,8 @@ outline: 0;</string>
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../icons/dollar.png</normaloff>../icons/dollar.png</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/icons/dollar.png</normaloff>:/icons/dollar.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -611,8 +611,8 @@ outline: 0;</string>
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../icons/сom_logo.png</normaloff>../icons/сom_logo.png</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/icons/сom_logo.png</normaloff>:/icons/сom_logo.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -686,8 +686,8 @@ outline: 0;</string>
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../icons/game_logo2.png</normaloff>../icons/game_logo2.png</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/icons/game_logo2.png</normaloff>:/icons/game_logo2.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -766,8 +766,8 @@ outline: 0;</string>
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../icons/charity_logo.png</normaloff>../icons/charity_logo.png</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/icons/charity_logo.png</normaloff>:/icons/charity_logo.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -784,7 +784,6 @@ outline: 0;</string>
    <zorder>vodokanal_button</zorder>
    <zorder>steam_lable</zorder>
    <zorder>steam_button</zorder>
-   <zorder>mob_button</zorder>
    <zorder>mob_folder_button</zorder>
    <zorder>mob_folder_label</zorder>
    <zorder>bank_folder_label</zorder>
@@ -795,20 +794,23 @@ outline: 0;</string>
    <zorder>game_folder_button</zorder>
    <zorder>charity_folder_label</zorder>
    <zorder>charity_folder_button</zorder>
+   <zorder>mob_button</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>799</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>mob_lable</sender>

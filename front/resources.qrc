@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/card_logo.png</file>
+        <file>icons/charity_logo.png</file>
+        <file>icons/dollar.png</file>
+        <file>icons/game_logo2.png</file>
+        <file>icons/mob-logo.jpg</file>
+        <file>icons/phone_logo.png</file>
+        <file>icons/steam_logo.jpg</file>
+        <file>icons/vodokanal_logo.png</file>
+        <file>icons/сom_logo.png</file>
+    </qresource>
+</RCC>
