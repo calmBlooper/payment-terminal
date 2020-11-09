@@ -2,23 +2,36 @@
 
 #include "Account.h"
 
-class EWalletAccount : Account {
+class EWalletAccount : public Account {
 private:
-	std::string login;
-	std::string email;
+	const std::string login;
+	const std::string email;
 
 public:
-	EWalletAccount(): Account(), login(""), email("")
+	EWalletAccount(const std::string& login = "", const std::string& email = ""): Account(), login(login), email(email)
 	{
 		return;
 	};
 
-	EWalletAccount(const unsigned long& id,
+	EWalletAccount(const std::string& currency,
+		           const double& initialBalance,
 		           const std::string& login,
 		           const std::string& email)
-		: Account(id),
+		: Account(0, currency, initialBalance),
 		  login(login),
 		  email(email)
+	{
+		return;
+	};
+
+	EWalletAccount(const __int64& id,
+		           const std::string& currency,
+		           const double& initialBalance,
+		           const std::string& login,
+		           const std::string& email)
+		: Account(id, currency, initialBalance),
+		login(login),
+		email(email)
 	{
 		return;
 	};
@@ -30,15 +43,8 @@ public:
 	const std::string& getLogin() const { return login; };
 	const std::string& getEmail() const { return email; };
 
-	void setLogin(const std::string& login)
-	{
-		(*this).login = login;
-		return;
-	};
-	void setEmail(const std::string& email)
-	{
-		(*this).email = email;
-		return;
-	};
-
 };
+
+std::ostream& operator<<(std::ostream& out, const EWalletAccount& ewa) {
+	return out << "id-" << ewa.getId() << ":" << ewa.getBalance() << ewa.getCurrency() << ',' << ewa.getLogin() << ',' << ewa.getEmail() << std::endl;
+}

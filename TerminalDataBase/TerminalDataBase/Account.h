@@ -1,22 +1,27 @@
 #pragma once
 
 #include <string>
+#include <iostream>
+#include <assert.h>
 
-class Account {
+#include "Identifiable.h"
+#include "CurrencyConverter.h"
+
+class Account : public Identifiable {
 private:
-	const unsigned long id;
-	std::string currency;
-	unsigned long balance;
+	const __int64 id;
+	const std::string currency;
+	double balance;
 
 public:
-	Account() : id(0), balance(0), currency("Any")
+	Account() : id(0), currency(Currency::UAH), balance(0.0)
 	{
 		return;
 	};
 
-	Account(const unsigned long& id,
-		    const std::string& currency = "Any",
-		    const unsigned long& balance = 0)
+	Account(const __int64& id,
+		    const std::string& currency = Currency::UAH,
+		    const double& balance = 0.0)
 		: id(id),
 		currency(currency),
 		balance(balance)
@@ -28,18 +33,31 @@ public:
 		return;
 	};
 
-	const unsigned long& getId() const { return id; };
-	const unsigned long& getBalance() const { return balance; };
+	virtual const __int64& getId() const { return id; };
+	const double& getBalance() const { return balance; };
 	const std::string& getCurrency() const { return currency; };
 
-	//limit 10 000 ???
-	void replenish(const unsigned int& sum)
+	void replenish(const double& amount, const char* from)
 	{
-		balance += sum;
+		if (currency != from) {
+			auto conv = convert(amount, from, currency.c_str());
+			balance += conv.first;
+		}
+		else
+		{
+			balance += amount;
+		}
 	};
-	void dismount(const unsigned int& sum)
+	void dismount(const double& amount, const char* from)
 	{
-		balance = balance >= sum ? balance - sum : 0;
+		if (currency != from) {
+			auto conv = convert(amount, from, currency.c_str());
+			balance = balance >= conv.first ? balance - conv.first : 0.0;
+		}
+		else
+		{
+			balance = balance >= amount ? balance - amount : 0.0;
+		}
 	};
 	
 };

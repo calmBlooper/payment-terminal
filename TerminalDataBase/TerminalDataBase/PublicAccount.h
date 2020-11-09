@@ -2,21 +2,34 @@
 
 #include "Account.h"
 
-class PublicAccount : Account {
+class PublicAccount : public Account {
 private:
-	std::string name;
-	std::string address;
+	const std::string name;
+	const std::string address;
 
 public:
-	PublicAccount(): Account(), name(""), address("")
+	PublicAccount(const std::string& name = "", const std::string& address = ""): Account(), name(name), address(address)
 	{
 		return;
 	};
 
-	PublicAccount(const unsigned long& id,
-		          const std::string& name = "",
-		          const std::string& address = "")
-		: Account(id),
+	PublicAccount(const std::string& currency,
+		          const double& initialBalance,
+		          const std::string& name,
+		          const std::string& address)
+		: Account(0, currency, initialBalance),
+		  name(name),
+		  address(address)
+	{
+		return;
+	};
+
+	PublicAccount(const __int64& id,
+		          const std::string& currency,
+		          const double& initialBalance,
+		          const std::string& name,
+		          const std::string& address)
+		: Account(id, currency, initialBalance),
 		  name(name),
 		  address(address)
 	{
@@ -31,15 +44,8 @@ public:
 	const std::string& getAddress() const { return address; };
 	const std::string& getName() const { return name; };
 
-	void setName(const std::string& name)
-	{
-		(*this).name = name;
-		return;
-	};
-	void setAddress(const std::string& address)
-	{ 
-		(*this).address = address;
-		return;
-	};
-
 };
+
+std::ostream& operator<<(std::ostream& out, const PublicAccount& pa) {
+	return out << "id-" << pa.getId() << ":" << pa.getBalance() << pa.getCurrency() << ',' << pa.getName() << " " << pa.getAddress() << std::endl;
+}

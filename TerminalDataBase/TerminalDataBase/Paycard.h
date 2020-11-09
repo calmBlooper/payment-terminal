@@ -2,24 +2,26 @@
 
 #include <string>
 
-class Paycard {
+#include "Identifiable.h"
+
+class Paycard : public Identifiable {
 private:
-	const unsigned long id;
-	const unsigned long accountId;
+	const __int64 id;
+	const __int64 accountId;
 	const std::string cardNumber;
-	const unsigned short cvv;
-	const unsigned short expMonth;
-	const unsigned short expYear;
-	unsigned short pin;
+	const __int8 cvv;
+	const __int8 expMonth;
+	const __int8 expYear;
+	__int8 pin;
 
 public:
-	Paycard(const unsigned long& id,
-		    const unsigned long& accountId,
+	Paycard(const __int64& id,
+		    const __int64& accountId,
 		    const std::string& cardNumber,
-		    const unsigned short& cvv,
-		    const unsigned short& expMonth,
-		    const unsigned short& expYear,
-		    const unsigned short& pin = 0)
+		    const __int8& cvv,
+		    const __int8& expMonth,
+		    const __int8& expYear,
+		    const __int8& pin = 0)
 		: id(id),
 		  accountId(accountId),
 		  cardNumber(cardNumber),
@@ -35,17 +37,17 @@ public:
 		return;
 	};
 
-	const unsigned long& getId() const { return id; };
-	const unsigned long& getAccountId() const { return accountId; };
+	virtual const __int64& getId() const { return id; };
+	const __int64& getAccountId() const { return accountId; };
 	const std::string& getCardNumber() const { return cardNumber; };
-	const unsigned short& getPin() const { return pin; };
-	const unsigned short& getCvv() const { return cvv; };
-	const unsigned short& getExpMonth() const { return expMonth; };
-	const unsigned short& getExpYear() const { return expYear; };
+	const __int8& getPin() const { return pin; };
+	const __int8& getCvv() const { return cvv; };
+	const __int8& getExpMonth() const { return expMonth; };
+	const __int8& getExpYear() const { return expYear; };
 
-	void setPin(const unsigned short& newPin)
+	void setPin(const __int8& newPin)
 	{ 
-		pin = (newPin >= 1000 && newPin <= 9999) ? newPin : pin;
+		pin = (newPin >= 0 && newPin <= 9999) ? newPin : pin;
 		return; 
 	};
 

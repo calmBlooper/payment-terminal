@@ -2,17 +2,22 @@
 
 #include <string>
 
-class Service {
+#include "Identifiable.h"
+
+class Service : Identifiable {
 private:
-	const unsigned long id;
-	std::string name;
-	double commission;
+	const __int64 id;
+	const __int32 serviceType;
+	const std::string name;
+	const double commission;
 	
 public:
-	Service(const unsigned long& id,
-		    const std::string& name = "",
-		    const double& commission = 0.0)
-		: id(0),
+	Service(const __int64& id,
+		    const __int32& serviceType,
+		    const std::string& name,
+		    const double& commission)
+		: id(id),
+		  serviceType(serviceType),
 		  name(name),
 		  commission(commission)
 	{
@@ -24,20 +29,9 @@ public:
 		return;
 	};
 
-	const unsigned long& getId() const { return id; };
+	virtual const __int64& getId() const { return id; };
+	const __int32& getServiceType() const { return serviceType; };
 	const std::string& getName() const { return name; };
 	const double& getCommission() const { return commission; };
-
-	void setName(const std::string& name)
-	{
-		(*this).name = name;
-		return;
-	};
-
-	void setCommission(const double& commission)
-	{
-		(*this).commission = commission;
-		return;
-	};
 
 };

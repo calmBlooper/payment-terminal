@@ -2,23 +2,36 @@
 
 #include "Account.h"
 
-class PrivateAccount : Account {
+class PrivateAccount : public Account {
 private:
-	std::string name;
-	std::string surename;
+	const std::string name;
+	const std::string surename;
 
 public:
-	PrivateAccount(): Account(), name(""), surename("")
+	PrivateAccount(const std::string& name = "", const std::string& surename = ""): Account(), name(name), surename(surename)
 	{
 		return;
 	};
 
-	PrivateAccount(const unsigned long& id,
-		           const std::string& name = "",
-		           const std::string& surename = "")
-		: Account(id),
+	PrivateAccount(const std::string& currency,
+		           const double& initialBalance,
+		           const std::string& name,
+		           const std::string& surename)
+		: Account(0, currency, initialBalance),
 		  name(name), 
 		  surename(surename)
+	{
+		return;
+	};
+
+	PrivateAccount(const __int64& id,
+		           const std::string& currency,
+		           const double& initialBalance,
+		           const std::string& name,
+		           const std::string& surename)
+		: Account(id,currency,initialBalance),
+		name(name),
+		surename(surename)
 	{
 		return;
 	};
@@ -30,15 +43,8 @@ public:
 	const std::string& getName() const { return name; };
 	const std::string& getSurename() const { return surename; };
 
-	void setName(const std::string& name)
-	{
-		(*this).name = name;
-		return;
-	};
-	void setSurename(const std::string& surename)
-	{
-		(*this).surename = surename;
-		return;
-	};
-
 };
+
+std::ostream& operator<<(std::ostream& out, const PrivateAccount& pa) {
+	return out << "id-" << pa.getId() << ":" << pa.getBalance() << pa.getCurrency() << ',' << pa.getName() << " " << pa.getSurename() << std::endl;
+}
