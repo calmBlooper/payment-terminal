@@ -9,5 +9,14 @@
         <file>icons/steam_logo.jpg</file>
         <file>icons/vodokanal_logo.png</file>
         <file>icons/сom_logo.png</file>
+        <file>icons/5_грн.jpg</file>
+        <file>icons/10_грн.jpg</file>
+        <file>icons/20_грн.png</file>
+        <file>icons/50_грн.png</file>
+        <file>icons/100_грн.jpg</file>
+        <file>icons/200_грн.jpg</file>
+        <file>icons/500_грн.jpg</file>
+        <file>icons/1000_грн.png</file>
+        <file>icons/back_icon.png</file>
     </qresource>
 </RCC>
