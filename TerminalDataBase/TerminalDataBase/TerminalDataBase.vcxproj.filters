@@ -16,6 +16,21 @@
     <Filter Include="Файлы заголовков\model">
       <UniqueIdentifier>{aed650b9-5324-4a21-9159-63e5b2ff474d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\database">
+      <UniqueIdentifier>{bf863bb5-e56d-4081-8dc4-cb31ab6e3fde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\database\tables">
+      <UniqueIdentifier>{dbaf6b9e-18cf-4923-bee2-5e4b3542204e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\db">
+      <UniqueIdentifier>{bf0e6756-89b8-4372-8608-14f59962c202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\utility">
+      <UniqueIdentifier>{55df082b-1884-4182-b3db-68876a04a890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\database\repository">
+      <UniqueIdentifier>{098d0744-8645-45ee-8638-dc420f51ba9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -58,6 +73,42 @@
     </ClInclude>
     <ClInclude Include="Paycard.h">
       <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountTable.h">
+      <Filter>Файлы заголовков\database\tables</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceTable.h">
+      <Filter>Файлы заголовков\database\tables</Filter>
+    </ClInclude>
+    <ClInclude Include="PaycardTable.h">
+      <Filter>Файлы заголовков\database\tables</Filter>
+    </ClInclude>
+    <ClInclude Include="DBConnector.h">
+      <Filter>Файлы заголовков\database</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrencyConverter.h">
+      <Filter>Файлы заголовков\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="Identifiable.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="PrivateAccountRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicAccountRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="EWalletAccountRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="MobileAccountRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="DBManager.h">
+      <Filter>Файлы заголовков\database</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

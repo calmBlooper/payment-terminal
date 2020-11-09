@@ -21,3 +21,6 @@ Release
 *.vbproj.user
 ipch
 *sdf
+TerminalDataBase/.vs/TerminalDataBase/v16/Browse.VC.opendb
+TerminalDataBase/.vs/TerminalDataBase/v16/Browse.VC.db-shm
+TerminalDataBase/.vs/TerminalDataBase/v16/Browse.VC.db-wal

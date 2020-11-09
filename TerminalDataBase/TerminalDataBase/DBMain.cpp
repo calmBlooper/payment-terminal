@@ -10,123 +10,67 @@
 #include "PublicAccount.h"
 #include "Service.h"
 
-//DB TEST
-static int callback(void* NotUsed, int argc, char** argv, char** azColName) {
-	int i;
-	for (i = 0; i < argc; i++) {
-		printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-	}
-	printf("\n");
-	return 0;
-}
+#include "DBManager.h"
 
 int main(void)
 {
-	//DB TEST
-	const char* dir = "DB\\test.db";
-	sqlite3* DB;
-	int exit = 0;
-	char* zErrMsg = 0;
-	const char* data = "Callback function called";
+	DBManager db;
 
-	/* Open database */
-	exit = sqlite3_open(dir, &DB);
+	std::cout << "Private:" << std::endl;
 
-	if (exit) {
-		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(DB));
-		return(0);
-	}
-	else {
-		fprintf(stdout, "Opened database successfully\n");
-	}
+	PrivateAccount pa1(Currency::UAH, 100.0,"Vadym","Nakytniak");
+	PrivateAccount pa2(Currency::EUR, 999000.0, "Trokhym", "Babych");
+	PrivateAccount pa3(Currency::UAH, 1000.0, "Alex", "Sad");
+	PrivateAccount pa4(Currency::USD, 100000.0, "megakiller2005", "");
+	db.getPrivateRepAcc().insert(pa1);
+	db.getPrivateRepAcc().insert(pa2);
+	db.getPrivateRepAcc().insert(pa3);
+	db.getPrivateRepAcc().insert(pa4);
 
-	/* Create Table SQL statement */
-	const char* sql_create = "CREATE TABLE COMPANY("  \
-		"ID INT PRIMARY KEY     NOT NULL," \
-		"NAME           TEXT    NOT NULL," \
-		"AGE            INT     NOT NULL," \
-		"ADDRESS        CHAR(50)," \
-		"SALARY         REAL );";
+	db.getPrivateRepAcc().remove(db.getPrivateRepAcc().getByKey({ "megakiller2005", "" }));
 
-	/* Execute SQL statement */
-	exit = sqlite3_exec(DB, sql_create, callback, 0, &zErrMsg);
+	auto vn = db.getPrivateRepAcc().getByKey({ "Vadym", "Nakytniak"});
+	std::cout << vn << std::endl;
+	vn.replenish(888,Currency::UAH);
+	db.getPrivateRepAcc().update(vn);
 
-	if (exit != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		sqlite3_free(zErrMsg);
-	}
-	else {
-		fprintf(stdout, "Table created successfully\n");
-	}
+	PrivateAccount wrong(-100,Currency::UAH, 100.0, "d", "d");
+	db.getPrivateRepAcc().update(wrong);
+	db.getPrivateRepAcc().remove(wrong);
 	
-	/* Insert data SQL statement */
-	const char* sql_insert = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "  \
-		"VALUES (1, 'Paul', 32, 'California', 20000.00 ); " \
-		"INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "  \
-		"VALUES (2, 'Allen', 25, 'Texas', 15000.00 ); "     \
-		"INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" \
-		"VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );" \
-		"INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" \
-		"VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );";
+	auto res = db.getPrivateRepAcc().getAll();
 
-	/* Execute SQL statement */
-	exit = sqlite3_exec(DB, sql_insert, callback, 0, &zErrMsg);
-
-	if (exit != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		sqlite3_free(zErrMsg);
-	}
-	else {
-		fprintf(stdout, "Records created successfully\n");
+	for (const auto acc : res)
+	{
+		std::cout << acc << std::endl;
 	}
 
-	/* Select data SQL statement */
-	const char* sql_select = "SELECT * from COMPANY";
+	auto acc = db.getPrivateRepAcc().getByKey({ "Vadym", "Nakytniak" });
+	std::cout << acc << std::endl;
 
-	/* Execute SQL statement */
-	exit = sqlite3_exec(DB, sql_select, callback, (void*)data, &zErrMsg);
+	std::cout << "Public:" << std::endl;
 
-	if (exit != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		sqlite3_free(zErrMsg);
-	}
-	else {
-		fprintf(stdout, "Operation done successfully\n");
-	}
+	PublicAccount pubAcc(Currency::USD, 100.0, "Apple.inc", "Silicon valley");
+	db.getPublicRepAcc().insert(pubAcc);
 
-	/* Create Update merged SQL statement */
-	const char* sql_update = "UPDATE COMPANY set SALARY = 25000.00 where ID=1; " \
-		"SELECT * from COMPANY";
+	auto a1 = db.getPublicRepAcc().getByKey("Apple.inc");
+	std::cout << a1 << std::endl;
 
-	/* Execute SQL statement */
-	exit = sqlite3_exec(DB, sql_update, callback, (void*)data, &zErrMsg);
+	std::cout << "Mobile:" << std::endl;
 
-	if (exit != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		sqlite3_free(zErrMsg);
-	}
-	else {
-		fprintf(stdout, "Operation done successfully\n");
-	}
+	MobileAccount mobAcc(Currency::UAH, 100.0, "380-060-37-890");
+	db.getMobileRepAcc().insert(mobAcc);
 
-	/* Create Delete merged SQL statement */
-	const char* sql_delete = "DELETE from COMPANY where ID=2; " \
-		"SELECT * from COMPANY";
+	auto a2 = db.getMobileRepAcc().getByKey("380-060-37-890");
+	std::cout << a2 << std::endl;
 
-	/* Execute SQL statement */
-	exit = sqlite3_exec(DB, sql_delete, callback, (void*)data, &zErrMsg);
+	std::cout << "EWallet:" << std::endl;
 
-	if (exit != SQLITE_OK) {
-		fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		sqlite3_free(zErrMsg);
-	}
-	else {
-		fprintf(stdout, "Operation done successfully\n");
-	}
+	EWalletAccount ewallAcc(Currency::UAH, 100.0, "megakiller", "mgkkllr@ukma.edu.ua");
+	db.getEWalletRepAcc().insert(ewallAcc);
 
-	sqlite3_close(DB);
-
-	std::cout << "Hello DataBase !!!" << std::endl;
+	auto a3 = db.getEWalletRepAcc().getByKey("megakiller");
+	std::cout << a3 << std::endl;
 
 	return 0;
 }

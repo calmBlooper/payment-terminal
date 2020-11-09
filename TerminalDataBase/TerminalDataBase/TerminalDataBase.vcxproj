@@ -150,12 +150,24 @@
     <ClInclude Include="..\..\..\..\Desktop\sqlite-amalgamation-3330000\sqlite3.h" />
     <ClInclude Include="..\..\..\..\Desktop\sqlite-amalgamation-3330000\sqlite3ext.h" />
     <ClInclude Include="Account.h" />
+    <ClInclude Include="AccountTable.h" />
+    <ClInclude Include="CurrencyConverter.h" />
+    <ClInclude Include="DBConnector.h" />
+    <ClInclude Include="DBManager.h" />
     <ClInclude Include="EWalletAccount.h" />
+    <ClInclude Include="EWalletAccountRepository.h" />
+    <ClInclude Include="Identifiable.h" />
     <ClInclude Include="MobileAccount.h" />
+    <ClInclude Include="MobileAccountRepository.h" />
     <ClInclude Include="Paycard.h" />
+    <ClInclude Include="PaycardTable.h" />
     <ClInclude Include="PrivateAccount.h" />
+    <ClInclude Include="PrivateAccountRepository.h" />
     <ClInclude Include="PublicAccount.h" />
+    <ClInclude Include="PublicAccountRepository.h" />
+    <ClInclude Include="Repository.h" />
     <ClInclude Include="Service.h" />
+    <ClInclude Include="ServiceTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
