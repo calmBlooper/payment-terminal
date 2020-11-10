@@ -120,6 +120,10 @@ private slots:
 
     void on_cancel_button_29_clicked();
 
+    void on_card_button_clicked();
+
+    void on_vodokanal_button_clicked();
+
 private:
     Ui::MainWindow *ui;
    void clearFields();

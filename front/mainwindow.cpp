@@ -23,18 +23,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_steam_button_clicked()
-{
-
-}
 void MainWindow::clearFields(){
-    ui->label_phone_number->setText("");
+    ui->account_number->setText("");
     ui->is_transfer_beznal->setChecked(false);
     ui->label_trans_sum->setText("");
-    ui->label_phone_number->setPlaceholderText("");
+    ui->account_number->setPlaceholderText("");
     ui->actual_cash_entered_label->setText("0");
     ui->actual_cash_bez_com->setText("0");
-    ui->label_phone_number->setStyleSheet(Utils::style_usual);
+    ui->account_number->setStyleSheet(Utils::style_usual);
     ui->confirm_nal_payment->setHidden(true);
     ui->cancel_payment_button->setHidden(false);
     ui->card_number->setText("");
@@ -42,12 +38,17 @@ void MainWindow::clearFields(){
     ui->year_field->setText("");
     ui->cvv2_field->setText("");
     ui->pin_field->clear();
+    ui->label_account_9->setFixedWidth(250);
+    QFont font;
+    font.setPointSize(15);
+    ui->label_account_9->setFont(font);
 }
-void MainWindow::on_mob_button_clicked()
-{
-   ui->label_account_9->setText("Введіть номер телефону:");
-   ui->stackedWidget->setCurrentIndex(1);
-   ui->label_phone_number->setValidator(new QRegExpValidator(Utils::phoneRegex, this));
+QString replaceAll(QString str){
+    for(int i = 0; i< str.length(); i++){
+        if(str.at(i) == ' '||str.at(i) == '('||str.at(i) == ')')
+            str.replace(i,1,"");
+    }
+    return str;
 }
 
 void MainWindow::on_cancel_button_clicked()
@@ -58,9 +59,9 @@ void MainWindow::on_cancel_button_clicked()
 }
 
 void MainWindow::addTextToAccountField(QString str){
-    QString text = ui->label_phone_number->text();
-    if(text.length()<Utils::digitsInPhoneNumber)
-        ui->label_phone_number->setText(text+str);
+    QString text = replaceAll(ui->account_number->text());
+    if(text.length()<=Utils::maxNumberOfDigits)
+        ui->account_number->setText(ui->account_number->text()+str);
 }
 
 void MainWindow::on_num_1_account_clicked()
@@ -105,22 +106,22 @@ void MainWindow::on_num_0_account_clicked()
 }
 void MainWindow::on_cl_one_account_clicked()
 {
-    ui->label_phone_number->backspace();
+    ui->account_number->backspace();
 }
 void MainWindow::on_cl_all_account_clicked()
 {
-    ui->label_phone_number->clear();
+    ui->account_number->clear();
 }
 
 void MainWindow::on_go_to_payment_page_clicked()
 {
-    if(ui->label_phone_number->text().length()==0){
-        ui->label_phone_number->setPlaceholderText("Введіть номер рахунку");
-        ui->label_phone_number->setStyleSheet(Utils::style_error);
+    if(ui->account_number->text().length()==0){
+        ui->account_number->setPlaceholderText("Введіть номер рахунку");
+        ui->account_number->setStyleSheet(Utils::style_error);
     }
     else{
-        ui->label_phone_number->setPlaceholderText("");
-        ui->label_phone_number->setStyleSheet(Utils::style_usual);
+        ui->account_number->setPlaceholderText("");
+        ui->account_number->setStyleSheet(Utils::style_usual);
 
         if(ui->is_transfer_beznal->isChecked()){
             ui->f1_button->setChecked(true);
@@ -200,10 +201,12 @@ void MainWindow::on_cl_all_transfer_clicked()
 
 double countCommision(int uan, int service){
     switch(service){
-    case 0:
+    case 0:case 2:
         return uan*0.03 > 50 ? 50: uan*0.03;
     case 1:
         return uan*0.05 > 200 ? 200: uan*0.05;
+    case 3:
+        return uan*0.07 > 500 ? 500: uan*0.07;
     }
     return 0;
 }
@@ -218,7 +221,7 @@ void MainWindow::on_goto_pin_clicked()
          ui->label_trans_sum->setPlaceholderText("");
          ui->label_trans_sum->setStyleSheet(Utils::style_usual);
          double com = ui->label_trans_sum->text().toInt() + countCommision(ui->label_trans_sum->text().toInt(), Utils::service);
-         ui->account_data->setText("Номер рахунку: " +  ui->label_phone_number->text());
+         ui->account_data->setText("Номер рахунку: " +  ui->account_number->text());
          ui->to_pay_sum->setText("Cума переказу: " +ui->label_trans_sum->text()+ " грн" );
          ui->card_data->setText("Номер карти: " +  ui->card_number->text());
          ui->to_pay_data->setText("До сплати: " + QString::number(com)+ " грн");
@@ -282,14 +285,6 @@ void MainWindow::on_uan500_button_clicked()
 void MainWindow::on_uan1000_button_clicked()
 {
     addCash(1000,Utils::service);
-}
-
-QString replaceAll(QString str){
-    for(int i = 0; i< str.length(); i++){
-        if(str.at(i) == ' ')
-            str.replace(i,1,"");
-    }
-    return str;
 }
 
 void MainWindow::addCardData(QString data)
@@ -530,20 +525,41 @@ void MainWindow::on_pin_field_textChanged(const QString &)
     ui->pin_field->setStyleSheet(Utils::style_usual);
 }
 void MainWindow::printCheck( QString acc, QString card ,QString sum){
-      double com = countCommision(sum.toDouble(), Utils::service);
-      QString check = card.length()>0 ? ( "Номер карти: " +card + '\n'+ "Сума платежу: "+ sum) : "Внесено готівки: " + sum  + '\n' + "Переведено: " + QString::number(sum.toDouble() - com);
-      ui->check->setText("Номер рахунку: " +acc + '\n'+ check+ '\n' +"Сума комісії: " +QString::number(com) + '\n');
+    double com;
+    QString check;
+    switch(Utils::service){
+    case 0:
+        com = countCommision(sum.toDouble(), Utils::service);
+        check = card.length()>0 ? ( "Номер карти платника: " +card + '\n'+ "Сума платежу: "+ sum) : "Внесено готівки: " + sum  + '\n' + "Переведено: " + QString::number(sum.toDouble() - com);
+        ui->check->setText("Номер мобільного рахунку: " +acc + '\n'+ check+ '\n' +"Сума комісії: " +QString::number(com) + '\n');
+        break;
+    case 1:
+        com = countCommision(sum.toDouble(), Utils::service);
+        check = card.length()>0 ? ( "Номер карти платника: " +card + '\n'+ "Сума платежу: "+ sum) : "Внесено готівки: " + sum  + '\n' + "Переведено: " + QString::number(sum.toDouble() - com);
+        ui->check->setText("Номер карти отримувача: " +acc + '\n'+ check+ '\n' +"Сума комісії: " +QString::number(com) + '\n');
+        break;
+    case 2:
+        com = countCommision(sum.toDouble(), Utils::service);
+        check = card.length()>0 ? ( "Номер карти платника: " +card + '\n'+ "Сума платежу: "+ sum) : "Внесено готівки: " + sum  + '\n' + "Переведено: " + QString::number(sum.toDouble() - com);
+        ui->check->setText("Отримувач: КП \"Київводоканал\"\nОсобовий номер рахунку платника: "+acc+'\n' + check+ '\n' +"Сума комісії: " +QString::number(com) + '\n');
+        break;
+    case 3:
+        com = countCommision(sum.toDouble(), Utils::service);
+        check = card.length()>0 ? ( "Номер карти платника: " +card + '\n'+ "Сума платежу: "+ sum) : "Внесено готівки: " + sum  + '\n' + "Переведено: " + QString::number(sum.toDouble() - com);
+        ui->check->setText("Отримувач: Valve Corporation\nлогін Steam: "+acc+'\n' + check+ '\n' +"Сума комісії: " +QString::number(com) + '\n');
+        break;
+    }
 }
 void MainWindow::on_confirmPin_clicked()
 {
-    QString acc = ui->label_phone_number->text();
+    QString acc = ui->account_number->text();
     QString card = ui->card_number->text();
     QString month = ui->month_field->text();
     QString year = ui->year_field->text();
     QString cvv2 = ui->cvv2_field->text();
     QString pin = ui->pin_field->text();
     QString sum = ui->label_trans_sum->text();
-    //send payment request
+    //TODO send payment request
     //
     bool success = true;
     if(success){
@@ -563,9 +579,9 @@ void MainWindow::on_cancelPin_clicked()
 }
 void MainWindow::on_confirm_nal_payment_clicked()
 {
-    QString acc = ui->label_phone_number->text();
+    QString acc = ui->account_number->text();
     QString sum = ui->actual_cash_entered_label->text();
-    // send payment request
+    //TODO send payment request
     //
     bool success = true;
     if(success){
@@ -585,11 +601,51 @@ void MainWindow::on_label_trans_sum_textChanged(const QString &)
 
 void MainWindow::on_label_phone_number_textChanged(const QString &)
 {
-    ui->label_phone_number->setStyleSheet(Utils::style_usual);
+    ui->account_number->setStyleSheet(Utils::style_usual);
 }
 
 void MainWindow::on_cancel_button_29_clicked()
 {
     clearFields();
      ui->stackedWidget->setCurrentIndex(0);
+}
+void MainWindow::on_mob_button_clicked()
+{
+   ui->label_account_9->setText("Введіть номер телефону:");
+   ui->account_number->setValidator(new QRegExpValidator(Utils::phoneRegex, this));
+   Utils::service = 0;
+   Utils::minNumberOfDigits = 10;
+   Utils::maxNumberOfDigits = 12;
+   ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_card_button_clicked()
+{
+    ui->label_account_9->setText("Введіть номер карти:");
+    ui->account_number->setValidator(new QRegExpValidator(Utils::cardNumberRegex, this));
+    Utils::service = 1;
+    Utils::minNumberOfDigits = 16;
+    Utils::maxNumberOfDigits = 16;
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_vodokanal_button_clicked()
+{
+    QFont font;
+    font.setPointSize(14);
+    ui->label_account_9->setFixedWidth(310);
+    ui->label_account_9->setFont(font);
+    ui->label_account_9->setText("Введіть номер особового рахунку:");
+    ui->account_number->setValidator(new QRegExpValidator(Utils::digits, this));
+    Utils::service = 2;
+    Utils::minNumberOfDigits = 12;
+    Utils::maxNumberOfDigits = 12;
+    ui->stackedWidget->setCurrentIndex(1);
+}
+void MainWindow::on_steam_button_clicked()
+{
+    ui->label_account_9->setText("Введіть логін Steam:");
+    ui->account_number->setValidator(new QRegExpValidator(Utils::login, this));
+    Utils::service = 3;
+    ui->stackedWidget->setCurrentIndex(1);
 }
