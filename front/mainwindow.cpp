@@ -3,35 +3,25 @@
 #include <iostream>
 #include <QRegExpValidator>
 #include<stdio.h>
-int MainWindow::digitsInPhoneNumber = 20;
-int MainWindow::service = 0;
+#include "Utils.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QRegExp cardRegex ("(\\d{4}[-. ]?){4}|\\d{4}[-. ]?\\d{6}[-. ]?\\d{5}");
-    QRegExp monthRegex ("01|02|03|04|05|06|07|08|09|10|11|12");
-    QRegExp yearRegex ("^[2-9][0-9]");
-    QRegExp cvvRegex ("[0-9]{3}");
-    QRegExp sumRegex ("\\d{1,5}|100000");
-    QRegExpValidator *cardValidator = new QRegExpValidator(cardRegex, this);
-    ui->card_number->setValidator(cardValidator);
-    QRegExpValidator *monthValidator = new QRegExpValidator(monthRegex, this);
-    ui->month_field->setValidator(monthValidator);
-    QRegExpValidator *yearValidator = new QRegExpValidator(yearRegex, this);
-    ui->year_field->setValidator(yearValidator);
-    QRegExpValidator *cvvValidator = new QRegExpValidator(cvvRegex, this);
-    ui->cvv2_field->setValidator(cvvValidator);
-    QRegExpValidator *sumValidator = new QRegExpValidator(sumRegex, this);
-    ui->label_trans_sum->setValidator(sumValidator);
+    ui->card_number->setValidator(new QRegExpValidator(Utils::cardNumberRegex, this));
+    ui->month_field->setValidator(new QRegExpValidator(Utils::monthRegex, this));
+    ui->year_field->setValidator(new QRegExpValidator(Utils::yearRegex, this));
+    ui->cvv2_field->setValidator(new QRegExpValidator(Utils::cvv2Regex, this));
+    ui->label_trans_sum->setValidator(new QRegExpValidator(Utils::sumOfTransferRegex, this));
+    ui->pin_field->setValidator(new QRegExpValidator(Utils::pinRegex, this));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 void MainWindow::on_steam_button_clicked()
 {
@@ -44,22 +34,20 @@ void MainWindow::clearFields(){
     ui->label_phone_number->setPlaceholderText("");
     ui->actual_cash_entered_label->setText("0");
     ui->actual_cash_bez_com->setText("0");
-    ui->label_phone_number->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                          " border-width: 3px;"
-                                          " border-radius: 10px;"
-                                          " border-color:  #331E38;"
-                                          " border-style:solid;"
-                                          " outline: 0;");
+    ui->label_phone_number->setStyleSheet(Utils::style_usual);
     ui->confirm_nal_payment->setHidden(true);
     ui->cancel_payment_button->setHidden(false);
+    ui->card_number->setText("");
+    ui->month_field->setText("");
+    ui->year_field->setText("");
+    ui->cvv2_field->setText("");
+    ui->pin_field->clear();
 }
 void MainWindow::on_mob_button_clicked()
 {
    ui->label_account_9->setText("Введіть номер телефону:");
    ui->stackedWidget->setCurrentIndex(1);
-   QRegExp phoneRegex ("^\\s*(?:\\+?(\\d{1,3}))?([-. (]*(\\d{3})[-. )]*)?((\\d{3})[-. ]*(\\d{2,4})(?:[-.x ]*(\\d+))?)\\s*$");
-   QRegExpValidator *phoneValidator = new QRegExpValidator(phoneRegex, this);
-   ui->label_phone_number->setValidator(phoneValidator);
+   ui->label_phone_number->setValidator(new QRegExpValidator(Utils::phoneRegex, this));
 }
 
 void MainWindow::on_cancel_button_clicked()
@@ -71,7 +59,7 @@ void MainWindow::on_cancel_button_clicked()
 
 void MainWindow::addTextToAccountField(QString str){
     QString text = ui->label_phone_number->text();
-    if(text.length()<digitsInPhoneNumber)
+    if(text.length()<Utils::digitsInPhoneNumber)
         ui->label_phone_number->setText(text+str);
 }
 
@@ -121,31 +109,23 @@ void MainWindow::on_cl_one_account_clicked()
 }
 void MainWindow::on_cl_all_account_clicked()
 {
-     ui->label_phone_number->setText("");
+    ui->label_phone_number->clear();
 }
 
 void MainWindow::on_go_to_payment_page_clicked()
 {
     if(ui->label_phone_number->text().length()==0){
         ui->label_phone_number->setPlaceholderText("Введіть номер рахунку");
-        ui->label_phone_number->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                              " border-width: 5px;"
-                                              " border-radius: 10px;"
-                                              " border-color:  red;"
-                                              " border-style:solid;"
-                                              " outline: 0;");
+        ui->label_phone_number->setStyleSheet(Utils::style_error);
     }
     else{
         ui->label_phone_number->setPlaceholderText("");
-        ui->label_phone_number->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                              " border-width: 3px;"
-                                              " border-radius: 10px;"
-                                              " border-color:  #331E38;"
-                                              " border-style:solid;"
-                                              " outline: 0;");
+        ui->label_phone_number->setStyleSheet(Utils::style_usual);
 
-        if(ui->is_transfer_beznal->isChecked())
+        if(ui->is_transfer_beznal->isChecked()){
+            ui->f1_button->setChecked(true);
             ui->stackedWidget->setCurrentIndex(3);
+        }
         else{
             ui->confirm_nal_payment->setHidden(true);
             ui->stackedWidget->setCurrentIndex(2);
@@ -165,9 +145,9 @@ void MainWindow::on_cancel_payment_button_clicked()
      clearFields();
 }
 void MainWindow::validateSumOfTransfer(QString str){
-    if( ui->label_trans_sum->text().length()<5 ||
-            (ui->label_trans_sum->text().endsWith("10000")&& str.endsWith("0")))
-         ui->label_trans_sum->setText(ui->label_trans_sum->text()+str);
+    QString temp = ui->label_trans_sum->text()+str;
+    if(Utils::sumOfTransferRegex.exactMatch(temp))
+         ui->label_trans_sum->setText(temp);
 }
 void MainWindow::on_num_1_transfer_clicked()
 {
@@ -215,43 +195,9 @@ void MainWindow::on_cl_one_transfer_clicked()
 }
 void MainWindow::on_cl_all_transfer_clicked()
 {
-     ui->label_trans_sum->setText("");
+     ui->label_trans_sum->clear();
 }
 
-
-void MainWindow::on_goto_card_inf_clicked()
-{
-
-     if(ui->label_trans_sum->text().length()==0){
-         ui->label_trans_sum->setPlaceholderText("Введіть суму переказу");
-         ui->label_trans_sum->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                               " border-width: 5px;"
-                                               " border-radius: 10px;"
-                                               " border-color:  red;"
-                                               " border-style:solid;"
-                                               " outline: 0;");
-     }
-     else{
-         ui->label_trans_sum->setPlaceholderText("");
-         ui->label_trans_sum->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                               " border-width: 3px;"
-                                               " border-radius: 10px;"
-                                               " border-color:  #331E38;"
-                                               " border-style:solid;"
-                                               " outline: 0;");
-          ui->stackedWidget->setCurrentIndex(4);
-}
-}
-
-void MainWindow::on_cancel_button_16_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(0);
-    ui->card_number->setText("");
-    ui->month_field->setText("");
-    ui->year_field->setText("");
-    ui->cvv2_field->setText("");
-    clearFields();
-}
 double countCommision(int uan, int service){
     switch(service){
     case 0:
@@ -261,6 +207,31 @@ double countCommision(int uan, int service){
     }
     return 0;
 }
+void MainWindow::on_goto_pin_clicked()
+{
+
+     if(ui->label_trans_sum->text().length()==0){
+         ui->label_trans_sum->setPlaceholderText("Введіть суму переказу");
+         ui->label_trans_sum->setStyleSheet(Utils::style_error);
+     }
+     else{
+         ui->label_trans_sum->setPlaceholderText("");
+         ui->label_trans_sum->setStyleSheet(Utils::style_usual);
+         double com = ui->label_trans_sum->text().toInt() + countCommision(ui->label_trans_sum->text().toInt(), Utils::service);
+         ui->account_data->setText("Номер рахунку: " +  ui->label_phone_number->text());
+         ui->to_pay_sum->setText("Cума переказу: " +ui->label_trans_sum->text()+ " грн" );
+         ui->card_data->setText("Номер карти: " +  ui->card_number->text());
+         ui->to_pay_data->setText("До сплати: " + QString::number(com)+ " грн");
+         ui->stackedWidget->setCurrentIndex(5);
+}
+}
+
+void MainWindow::on_cancel_button_16_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    clearFields();
+}
+
 void MainWindow::addCash(int uan, int service)
 {
   ui->cancel_payment_button->setHidden(true);
@@ -275,42 +246,42 @@ void MainWindow::addCash(int uan, int service)
 }
 void MainWindow::on_uan5_button_clicked()
 {
-     addCash(5,service);
+     addCash(5,Utils::service);
 }
 
 void MainWindow::on_uan10_button_clicked()
 {
-    addCash(10,service);
+    addCash(10,Utils::service);
 }
 
 void MainWindow::on_uan20_button_clicked()
 {
-     addCash(20,service);
+     addCash(20,Utils::service);
 }
 
 void MainWindow::on_uan50_button_clicked()
 {
-    addCash(50,service);
+    addCash(50,Utils::service);
 }
 
 void MainWindow::on_uan100_button_clicked()
 {
-    addCash(100,service);
+    addCash(100,Utils::service);
 }
 
 void MainWindow::on_uan200_button_clicked()
 {
-    addCash(200,service);
+    addCash(200,Utils::service);
 }
 
 void MainWindow::on_uan500_button_clicked()
 {
-    addCash(500,service);
+    addCash(500,Utils::service);
 }
 
 void MainWindow::on_uan1000_button_clicked()
 {
-    addCash(1000,service);
+    addCash(1000,Utils::service);
 }
 
 QString replaceAll(QString str){
@@ -323,16 +294,25 @@ QString replaceAll(QString str){
 
 void MainWindow::addCardData(QString data)
 {
-  if( ui->f1_button->isChecked()&&replaceAll(ui->card_number->text()).length()<16){
+
+  if( ui->f1_button->isChecked()&& replaceAll(ui->card_number->text()+data).length()<17){
      ui->card_number->setText(ui->card_number->text()+data);
+     if(replaceAll(ui->card_number->text()).length()==16)
+        on_f2_clicked();
   }
-  if( ui->f2->isChecked()){
-    if(ui->month_field->text().length()<2)
-        ui->month_field->setText(ui->month_field->text()+data);
-    else
-       ui->year_field->setText(ui->year_field->text()+data);
+  else if( ui->f2->isChecked()){
+        if(ui->month_field->text().length()==0)
+           ui->month_field->setText(ui->month_field->text()+data);
+        else if(ui->month_field->text().length()==1 && data.toInt()<3)
+           ui->month_field->setText(ui->month_field->text()+data);
+        else if (ui->year_field->text().length()==0 && data.toInt()>1)
+              ui->year_field->setText(ui->year_field->text()+data);
+        else if(ui->year_field->text().length()==1){
+              ui->year_field->setText(ui->year_field->text()+data);
+              on_f3_clicked();
+       }
   }
-  if( ui->f3->isChecked()){
+  else if( ui->f3->isChecked()){
      ui->cvv2_field->setText(ui->cvv2_field->text()+data);
   }
 }
@@ -434,112 +414,51 @@ void MainWindow::on_cl_all_data_clicked()
 
 void MainWindow::on_goto_transfer_details_clicked()
 {
-    QRegExp cardRegex ("(\\d{4}[-. ]?){4}|\\d{4}[-. ]?\\d{6}[-. ]?\\d{5}");
-    QRegExp monthRegex ("01|02|03|04|05|06|07|08|09|10|11|12");
-    QRegExp yearRegex ("^[2-9][0-9]");
-    QRegExp cvvRegex ("[0-9]{3}");
-    if(!cardRegex.exactMatch(ui->card_number->text()))
+    if(!Utils::cardNumberRegex.exactMatch(ui->card_number->text()))
     {
-        ui->card_number->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                       " border-width: 5px;"
-                                       " border-radius: 10px;"
-                                       " border-color:  red;"
-                                       " border-style:solid;"
-                                       " outline: 0;");
+        ui->card_number->setStyleSheet(Utils::style_error);
     }
-    else if(!monthRegex.exactMatch(ui->month_field->text()))
+    else if(!Utils::monthRegex.exactMatch(ui->month_field->text()))
     {
-        ui->month_field->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                       " border-width: 5px;"
-                                       " border-radius: 10px;"
-                                       " border-color:  red;"
-                                       " border-style:solid;"
-                                       " outline: 0;");
+        ui->month_field->setStyleSheet(Utils::style_error);
     }
-    else if(!yearRegex.exactMatch(ui->year_field->text()))
+    else if(!Utils::yearRegex.exactMatch(ui->year_field->text()))
     {
-        ui->year_field->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                       " border-width: 5px;"
-                                       " border-radius: 10px;"
-                                       " border-color:  red;"
-                                       " border-style:solid;"
-                                       " outline: 0;");
+        ui->year_field->setStyleSheet(Utils::style_error);
     }
-    else if(!cvvRegex.exactMatch(ui->cvv2_field->text()))
+    else if(!Utils::cvv2Regex.exactMatch(ui->cvv2_field->text()))
     {
-        ui->cvv2_field->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                       " border-width: 5px;"
-                                       " border-radius: 10px;"
-                                       " border-color:  red;"
-                                       " border-style:solid;"
-                                       " outline: 0;");
+        ui->cvv2_field->setStyleSheet(Utils::style_error);
     }
     else{
-        double com = ui->label_trans_sum->text().toInt() + countCommision(ui->label_trans_sum->text().toInt(), MainWindow::service);
-        ui->account_data->setText("Номер рахунку: " +  ui->label_phone_number->text());
-        ui->card_data->setText("Номер карти: " +  ui->card_number->text());
-        ui->to_pay_data->setText("До сплати: " + QString::number(com));
-        ui->stackedWidget->setCurrentIndex(5);
+        ui->stackedWidget->setCurrentIndex(4);
     }
 }
 
 
 void MainWindow::on_card_number_textChanged(const QString &)
 {
-    ui->card_number->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                          " border-width: 3px;"
-                                          " border-radius: 10px;"
-                                          " border-color:  #331E38;"
-                                          " border-style:solid;"
-                                          " outline: 0;");
+    ui->card_number->setStyleSheet(Utils::style_usual);
 }
 
 void MainWindow::on_month_field_textChanged(const QString &)
 {
-    ui->month_field->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                          " border-width: 3px;"
-                                          " border-radius: 10px;"
-                                          " border-color:  #331E38;"
-                                          " border-style:solid;"
-                                          " outline: 0;");
+    ui->month_field->setStyleSheet(Utils::style_usual);
 }
 
 void MainWindow::on_year_field_textChanged(const QString &)
 {
-    ui->year_field->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                          " border-width: 3px;"
-                                          " border-radius: 10px;"
-                                          " border-color:  #331E38;"
-                                          " border-style:solid;"
-                                          " outline: 0;");
+    ui->year_field->setStyleSheet(Utils::style_usual);
 }
 
 void MainWindow::on_cvv2_field_textChanged(const QString &)
 {
-    ui->cvv2_field->setStyleSheet("background-color: rgb(255, 255, 255);"
-                                          " border-width: 3px;"
-                                          " border-radius: 10px;"
-                                          " border-color:  #331E38;"
-                                          " border-style:solid;"
-                                          " outline: 0;");
+    ui->cvv2_field->setStyleSheet(Utils::style_usual);
 }
 
 void MainWindow::on_confirm_payment_clicked()
 {
-    ApprovePaymentPage approvementPage(ui->label_phone_number->text(),ui->card_number->text(),ui->label_trans_sum->text(),ui->year_field->text(),ui->month_field->text(),ui->cvv2_field->text());
-    approvementPage.setModal(true);
-    approvementPage.exec();
-    if(approvementPage.result()==1){
-        ui->check->setText("Номер рахунку: " +ui->label_phone_number->text() + '\n'+
-                          "Номер карти: " +ui->card_number->text() + '\n'+
-                          "Сума платежу: " +ui->label_trans_sum->text() + '\n'+
-                          "Сума комісії: " +QString::number(countCommision(ui->label_trans_sum->text().toInt(), MainWindow::service)));
-        ui->stackedWidget->setCurrentIndex(6);
-
-    }
-    if(approvementPage.result()==0){
-         ui->stackedWidget->setCurrentIndex(7);
-    }
+     ui->stackedWidget->setCurrentIndex(8);
 }
 
 void MainWindow::on_back_to_main_menu_clicked()
@@ -554,24 +473,123 @@ void MainWindow::on_pushButton_2_clicked()
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-
-
-void MainWindow::on_confirm_nal_payment_clicked()
+void MainWindow::addNumber(QString num){
+    if(ui->pin_field->text().length()<4)
+        ui->pin_field->setText(ui->pin_field->text() + num);
+}
+void MainWindow::on_num_1_clicked()
+{
+    addNumber("1");
+}
+void MainWindow::on_num_2_clicked()
+{
+    addNumber("2");
+}
+void MainWindow::on_num_3_clicked()
+{
+    addNumber("3");
+}
+void MainWindow::on_num_4_clicked()
+{
+    addNumber("4");
+}
+void MainWindow::on_num_5_clicked()
+{
+    addNumber("5");
+}
+void MainWindow::on_num_6_clicked()
+{
+    addNumber("6");
+}
+void MainWindow::on_num_7_clicked()
+{
+    addNumber("7");
+}
+void MainWindow::on_num_8_clicked()
+{
+    addNumber("8");
+}
+void MainWindow::on_num_9_clicked()
+{
+    addNumber("9");
+}
+void MainWindow::on_num_0_clicked()
+{
+    addNumber("0");
+}
+void MainWindow::on_cl_onePin_clicked()
+{
+    ui->pin_field->backspace();
+}
+void MainWindow::on_cl_allPin_clicked()
+{
+    ui->pin_field->clear();
+}
+void MainWindow::on_pin_field_textChanged(const QString &)
+{
+    ui->pin_field->setStyleSheet(Utils::style_usual);
+}
+void MainWindow::printCheck( QString acc, QString card ,QString sum){
+      double com = countCommision(sum.toDouble(), Utils::service);
+      QString check = card.length()>0 ? ( "Номер карти: " +card + '\n'+ "Сума платежу: "+ sum) : "Внесено готівки: " + sum  + '\n' + "Переведено: " + QString::number(sum.toDouble() - com);
+      ui->check->setText("Номер рахунку: " +acc + '\n'+ check+ '\n' +"Сума комісії: " +QString::number(com) + '\n');
+}
+void MainWindow::on_confirmPin_clicked()
 {
     QString acc = ui->label_phone_number->text();
-    QString sum = ui->actual_cash_entered_label->text();
-    double com = countCommision(sum.toDouble(), MainWindow::service);
-    // send payment request
+    QString card = ui->card_number->text();
+    QString month = ui->month_field->text();
+    QString year = ui->year_field->text();
+    QString cvv2 = ui->cvv2_field->text();
+    QString pin = ui->pin_field->text();
+    QString sum = ui->label_trans_sum->text();
+    //send payment request
     //
     bool success = true;
     if(success){
-        ui->check->setText("Номер рахунку: " +acc + '\n'+
-                          "Внесено готівки: " +sum + '\n'+
-                          "Сума комісії: " +QString::number(com) + '\n');
+        printCheck(acc,card, sum);
         ui->stackedWidget->setCurrentIndex(6);
     }
     else{
          ui->stackedWidget->setCurrentIndex(7);
     }
 
+}
+
+void MainWindow::on_cancelPin_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    clearFields();
+}
+void MainWindow::on_confirm_nal_payment_clicked()
+{
+    QString acc = ui->label_phone_number->text();
+    QString sum = ui->actual_cash_entered_label->text();
+    // send payment request
+    //
+    bool success = true;
+    if(success){
+        printCheck(acc, "", sum);
+        ui->stackedWidget->setCurrentIndex(6);
+    }
+    else{
+         ui->stackedWidget->setCurrentIndex(7);
+    }
+
+}
+
+void MainWindow::on_label_trans_sum_textChanged(const QString &)
+{
+    ui->label_trans_sum->setStyleSheet(Utils::style_usual);
+}
+
+void MainWindow::on_label_phone_number_textChanged(const QString &)
+{
+    ui->label_phone_number->setStyleSheet(Utils::style_usual);
+}
+
+void MainWindow::on_cancel_button_29_clicked()
+{
+    clearFields();
+     ui->stackedWidget->setCurrentIndex(0);
 }

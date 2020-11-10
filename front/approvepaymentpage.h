@@ -47,7 +47,7 @@ private:
     QString year;
     QString month;
     QString cvv2;
-    void addNumber(QString num);
+
     static int tries;
 };
 

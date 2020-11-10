@@ -50,7 +50,7 @@ private slots:
 
     void on_cl_one_transfer_clicked();
     void on_cl_all_transfer_clicked();
-    void on_goto_card_inf_clicked();
+    void on_goto_pin_clicked();
     void on_cancel_button_16_clicked();
 
     void on_uan5_button_clicked();
@@ -82,37 +82,51 @@ private slots:
     void on_num_8_data_clicked();
     void on_num_9_data_clicked();
     void on_num_0_data_clicked();
-
     void on_cl_one_data_clicked();
-
     void on_cl_all_data_clicked();
-
     void on_goto_transfer_details_clicked();
 
     void on_card_number_textChanged(const QString &arg1);
-
     void on_month_field_textChanged(const QString &arg1);
-
     void on_year_field_textChanged(const QString &arg1);
-
     void on_cvv2_field_textChanged(const QString &arg1);
 
-
     void on_confirm_payment_clicked();
-
     void on_back_to_main_menu_clicked();
-
     void on_pushButton_2_clicked();
-
     void on_confirm_nal_payment_clicked();
+    void on_num_1_clicked();
+    void on_num_2_clicked();
+    void on_num_3_clicked();
+    void on_num_4_clicked();
+    void on_num_5_clicked();
+    void on_num_6_clicked();
+    void on_num_7_clicked();
+    void on_num_8_clicked();
+    void on_num_9_clicked();
+    void on_num_0_clicked();
+    void on_cl_onePin_clicked();
+    void on_cl_allPin_clicked();
+
+    void on_confirmPin_clicked();
+
+    void on_pin_field_textChanged(const QString &arg1);
+
+    void on_cancelPin_clicked();
+
+    void on_label_trans_sum_textChanged(const QString &arg1);
+
+    void on_label_phone_number_textChanged(const QString &arg1);
+
+    void on_cancel_button_29_clicked();
 
 private:
     Ui::MainWindow *ui;
-   static int digitsInPhoneNumber;
-   static int service;
    void clearFields();
    void addTextToAccountField(QString str);
    void addCash(int uan, int service);
    void addCardData(QString);
+   void addNumber(QString num);
+   void printCheck( QString acc, QString card ,QString sum);
 };
 #endif // MAINWINDOW_H
