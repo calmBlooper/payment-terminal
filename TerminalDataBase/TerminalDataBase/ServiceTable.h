@@ -24,11 +24,12 @@ namespace ServiceTable {
 
 	const std::string INSERT = "INSERT INTO " + TABLE_NAME + "(" + COLUMN_2_NAME + ", " + COLUMN_3_COMMISSION + ", " + COLUMN_4_TYPE + ") VALUES (?,?,?)";
 	const std::string SELECT = "SELECT * FROM " + TABLE_NAME;
+	const std::string SELECT_BY_TYPE = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_4_TYPE + "=?";
 	const std::string DELETE = "DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_1_ID + "=?";
 
 	const std::string GET = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_2_NAME + "=?";
 
-	const std::string UPDATE_BY_ID = "UPDATE " + TABLE_NAME + " SET " + COLUMN_2_NAME + "=?, " + COLUMN_3_COMMISSION + "=?, " + COLUMN_4_TYPE + "=? WHERE " + COLUMN_1_ID + "=?";
+	const std::string UPDATE_BY_ID = "UPDATE " + TABLE_NAME + " SET " + COLUMN_3_COMMISSION + "=? WHERE " + COLUMN_1_ID + "=?";
 }
 #define SERVICE_TABLE
 #endif

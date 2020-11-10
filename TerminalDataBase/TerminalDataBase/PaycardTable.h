@@ -46,7 +46,7 @@ namespace PaycardTable {
 
 	const std::string GET = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_3_CARD_NUMBER + "=?";
 
-	const std::string UPDATE_PIN_BY_ID = "UPDATE " + TABLE_NAME + " SET " + COLUMN_7_PIN + "=? WHERE " + COLUMN_1_ID + "=?";
+	const std::string UPDATE_BY_ID = "UPDATE " + TABLE_NAME + " SET " + COLUMN_7_PIN + "=? WHERE " + COLUMN_1_ID + "=?";
 }
 #define PAYCARD_TABLE
 #endif
