@@ -110,5 +110,11 @@
     <ClInclude Include="DBManager.h">
       <Filter>Файлы заголовков\database</Filter>
     </ClInclude>
+    <ClInclude Include="ServiceRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="PaycardRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

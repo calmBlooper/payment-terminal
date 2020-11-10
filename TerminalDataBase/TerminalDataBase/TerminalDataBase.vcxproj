@@ -160,6 +160,7 @@
     <ClInclude Include="MobileAccount.h" />
     <ClInclude Include="MobileAccountRepository.h" />
     <ClInclude Include="Paycard.h" />
+    <ClInclude Include="PaycardRepository.h" />
     <ClInclude Include="PaycardTable.h" />
     <ClInclude Include="PrivateAccount.h" />
     <ClInclude Include="PrivateAccountRepository.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="PublicAccountRepository.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Service.h" />
+    <ClInclude Include="ServiceRepository.h" />
     <ClInclude Include="ServiceTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

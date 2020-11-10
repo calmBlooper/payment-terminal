@@ -24,3 +24,4 @@ ipch
 TerminalDataBase/.vs/TerminalDataBase/v16/Browse.VC.opendb
 TerminalDataBase/.vs/TerminalDataBase/v16/Browse.VC.db-shm
 TerminalDataBase/.vs/TerminalDataBase/v16/Browse.VC.db-wal
+TerminalDataBase/TerminalDataBase/test.db

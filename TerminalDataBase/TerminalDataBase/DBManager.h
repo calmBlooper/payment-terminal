@@ -16,6 +16,8 @@
 #include "PublicAccountRepository.h"
 #include "MobileAccountRepository.h"
 #include "EWalletAccountRepository.h"
+#include "ServiceRepository.h"
+#include "PaycardRepository.h"
 
 class DBManager {
 private:
@@ -24,14 +26,14 @@ private:
 	MobileAccountRepository mobileRep;
 	EWalletAccountRepository ewalletRep;
 
+	ServiceRepository serviceRep;
+	PaycardRepository paycardRep;
+
 	const char* dir = "test.db";
 
-	void init() {
-		DBConnector::InitConnection(dir)->getConnection();
-	}
 public:
 	DBManager() {
-		init();
+		DBConnector::InitConnection(dir)->getConnection();
 	}
 	~DBManager() {
 		DBConnector::InitConnection(dir)->closeConnection();
@@ -51,6 +53,14 @@ public:
 
 	EWalletAccountRepository& getEWalletRepAcc() {
 		return ewalletRep;
+	}
+
+	ServiceRepository& getServiceRep() {
+		return serviceRep;
+	}
+
+	PaycardRepository& getPaycardRep() {
+		return paycardRep;
 	}
 
 };

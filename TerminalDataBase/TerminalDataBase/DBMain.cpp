@@ -72,5 +72,43 @@ int main(void)
 	auto a3 = db.getEWalletRepAcc().getByKey("megakiller");
 	std::cout << a3 << std::endl;
 
+
+	std::cout << "Service Test:" << std::endl;
+
+	Service serv01(0, "Fortnite", .30);
+	Service serv02(0, "Dota 2", .10);
+	Service serv11(1, "Steam", .20);
+	Service serv12(1, "EpicStore", .20);
+	db.getServiceRep().insert(serv01);
+	db.getServiceRep().insert(serv02);
+	db.getServiceRep().insert(serv11);
+	db.getServiceRep().insert(serv12);
+
+	auto s = db.getServiceRep().getByKey("Fortnite");
+	std::cout << s << std::endl;
+
+	auto ss = db.getServiceRep().getAll();
+	for(auto x : ss) std::cout << x << std::endl;
+
+	auto t0 = db.getServiceRep().getByType(0);
+	for (auto x : t0) std::cout << x << std::endl;
+
+	auto t1 = db.getServiceRep().getByType(1);
+	for (auto x : t1) std::cout << x << std::endl;
+
+	std::cout << "Paycard Test:" << std::endl;
+
+	Paycard pc(vn.getId(), "1010-2020-3030-4040",123,12,2077,4040);
+	Paycard pc2(vn.getId(), "777", 777, 777, 777, 777);
+
+	db.getPaycardRep().insert(pc);
+	db.getPaycardRep().insert(pc2);
+
+	auto kk = db.getPaycardRep().getByKey("1010-2020-3030-4040");
+	std::cout << kk << std::endl;
+
+	auto kkk = db.getPaycardRep().getAll();
+	for (auto x : kkk) std::cout << x << std::endl;
+
 	return 0;
 }
