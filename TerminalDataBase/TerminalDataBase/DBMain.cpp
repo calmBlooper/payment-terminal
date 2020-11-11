@@ -69,9 +69,14 @@ int main(void)
 	EWalletAccount ewallAcc(Currency::UAH, 100.0, "megakiller", "mgkkllr@ukma.edu.ua");
 	db.getEWalletRepAcc().insert(ewallAcc);
 
-	auto a3 = db.getEWalletRepAcc().getByKey("megakiller");
-	std::cout << a3 << std::endl;
+	auto byLogin = db.getEWalletRepAcc().getByLogin("megakiller");
+	std::cout << byLogin << std::endl;
 
+	auto byEmail = db.getEWalletRepAcc().getByEmail("mgkkllr@ukma.edu.ua");
+	std::cout << byEmail << std::endl;
+
+	auto byKey = db.getEWalletRepAcc().getByKey({ "megakiller", "mgkkllr@ukma.edu.ua" });
+	std::cout << byKey << std::endl;
 
 	std::cout << "Service Test:" << std::endl;
 
