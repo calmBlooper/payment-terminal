@@ -7,8 +7,8 @@
 class Utils{
 public:
     static int maxNumberOfDigits;
-    static int minNumberOfDigits;
-    static int service;
+    static int serviceType;
+    static QString service;
     static QRegExp emailRegex;
     static QRegExp digits;
     static QRegExp cardNumberRegex;
@@ -22,10 +22,10 @@ public:
     static QString style_error;
     static QRegExp login;
 };
-int Utils::minNumberOfDigits = 0;
+int Utils::serviceType = 0;
 int Utils::maxNumberOfDigits = 0;
-int Utils::service = 0;
 QRegExp Utils::emailRegex("");
+QString Utils::service("");
 QRegExp Utils::digits("[0-9]*");
 QRegExp Utils::login("[A-Za-z_0-9]+");
 QRegExp Utils::cardNumberRegex("(\\d{4}[ ]?){4}|\\d{4}[ ]?\\d{6}[ ]?\\d{5}");

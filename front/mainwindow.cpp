@@ -5,6 +5,7 @@
 #include<stdio.h>
 #include "Utils.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -42,6 +43,7 @@ void MainWindow::clearFields(){
     QFont font;
     font.setPointSize(15);
     ui->label_account_9->setFont(font);
+    ui->servlistWidget->clear();
 }
 QString replaceAll(QString str){
     for(int i = 0; i< str.length(); i++){
@@ -136,8 +138,7 @@ void MainWindow::on_go_to_payment_page_clicked()
 
 void MainWindow::on_cancel_sum_button_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
-    clearFields();
+    ui->stackedWidget->setCurrentIndex(3);
 }
 
 void MainWindow::on_cancel_payment_button_clicked()
@@ -199,16 +200,9 @@ void MainWindow::on_cl_all_transfer_clicked()
      ui->label_trans_sum->clear();
 }
 
-double countCommision(int uan, int service){
-    switch(service){
-    case 0:case 2:
-        return uan*0.03 > 50 ? 50: uan*0.03;
-    case 1:
-        return uan*0.05 > 200 ? 200: uan*0.05;
-    case 3:
-        return uan*0.07 > 500 ? 500: uan*0.07;
-    }
-    return 0;
+double countCommision(int uan){
+    //count commison service name = Utils::service
+     return 0;
 }
 void MainWindow::on_goto_pin_clicked()
 {
@@ -220,7 +214,7 @@ void MainWindow::on_goto_pin_clicked()
      else{
          ui->label_trans_sum->setPlaceholderText("");
          ui->label_trans_sum->setStyleSheet(Utils::style_usual);
-         double com = ui->label_trans_sum->text().toInt() + countCommision(ui->label_trans_sum->text().toInt(), Utils::service);
+         double com = ui->label_trans_sum->text().toInt() + countCommision(ui->label_trans_sum->text().toInt());
          ui->account_data->setText("Номер рахунку: " +  ui->account_number->text());
          ui->to_pay_sum->setText("Cума переказу: " +ui->label_trans_sum->text()+ " грн" );
          ui->card_data->setText("Номер карти: " +  ui->card_number->text());
@@ -231,11 +225,10 @@ void MainWindow::on_goto_pin_clicked()
 
 void MainWindow::on_cancel_button_16_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
-    clearFields();
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::addCash(int uan, int service)
+void MainWindow::addCash(int uan)
 {
   ui->cancel_payment_button->setHidden(true);
   ui->confirm_nal_payment->setHidden(false);
@@ -244,47 +237,47 @@ void MainWindow::addCash(int uan, int service)
    if(val1>100000)
        return;
   ui->actual_cash_entered_label->setText(QString::number(val1));
-  ui->actual_cash_bez_com->setText(QString::number(val1-countCommision(val1, service)));
+  ui->actual_cash_bez_com->setText(QString::number(val1-countCommision(val1)));
 
 }
 void MainWindow::on_uan5_button_clicked()
 {
-     addCash(5,Utils::service);
+     addCash(5);
 }
 
 void MainWindow::on_uan10_button_clicked()
 {
-    addCash(10,Utils::service);
+    addCash(10);
 }
 
 void MainWindow::on_uan20_button_clicked()
 {
-     addCash(20,Utils::service);
+     addCash(20);
 }
 
 void MainWindow::on_uan50_button_clicked()
 {
-    addCash(50,Utils::service);
+    addCash(50);
 }
 
 void MainWindow::on_uan100_button_clicked()
 {
-    addCash(100,Utils::service);
+    addCash(100);
 }
 
 void MainWindow::on_uan200_button_clicked()
 {
-    addCash(200,Utils::service);
+    addCash(200);
 }
 
 void MainWindow::on_uan500_button_clicked()
 {
-    addCash(500,Utils::service);
+    addCash(500);
 }
 
 void MainWindow::on_uan1000_button_clicked()
 {
-    addCash(1000,Utils::service);
+    addCash(1000);
 }
 
 void MainWindow::addCardData(QString data)
@@ -525,30 +518,8 @@ void MainWindow::on_pin_field_textChanged(const QString &)
     ui->pin_field->setStyleSheet(Utils::style_usual);
 }
 void MainWindow::printCheck( QString acc, QString card ,QString sum){
-    double com;
-    QString check;
-    switch(Utils::service){
-    case 0:
-        com = countCommision(sum.toDouble(), Utils::service);
-        check = card.length()>0 ? ( "Номер карти платника: " +card + '\n'+ "Сума платежу: "+ sum) : "Внесено готівки: " + sum  + '\n' + "Переведено: " + QString::number(sum.toDouble() - com);
-        ui->check->setText("Номер мобільного рахунку: " +acc + '\n'+ check+ '\n' +"Сума комісії: " +QString::number(com) + '\n');
-        break;
-    case 1:
-        com = countCommision(sum.toDouble(), Utils::service);
-        check = card.length()>0 ? ( "Номер карти платника: " +card + '\n'+ "Сума платежу: "+ sum) : "Внесено готівки: " + sum  + '\n' + "Переведено: " + QString::number(sum.toDouble() - com);
-        ui->check->setText("Номер карти отримувача: " +acc + '\n'+ check+ '\n' +"Сума комісії: " +QString::number(com) + '\n');
-        break;
-    case 2:
-        com = countCommision(sum.toDouble(), Utils::service);
-        check = card.length()>0 ? ( "Номер карти платника: " +card + '\n'+ "Сума платежу: "+ sum) : "Внесено готівки: " + sum  + '\n' + "Переведено: " + QString::number(sum.toDouble() - com);
-        ui->check->setText("Отримувач: КП \"Київводоканал\"\nОсобовий номер рахунку платника: "+acc+'\n' + check+ '\n' +"Сума комісії: " +QString::number(com) + '\n');
-        break;
-    case 3:
-        com = countCommision(sum.toDouble(), Utils::service);
-        check = card.length()>0 ? ( "Номер карти платника: " +card + '\n'+ "Сума платежу: "+ sum) : "Внесено готівки: " + sum  + '\n' + "Переведено: " + QString::number(sum.toDouble() - com);
-        ui->check->setText("Отримувач: Valve Corporation\nлогін Steam: "+acc+'\n' + check+ '\n' +"Сума комісії: " +QString::number(com) + '\n');
-        break;
-    }
+   //create check string
+   ui->check->setText("");
 }
 void MainWindow::on_confirmPin_clicked()
 {
@@ -606,46 +577,178 @@ void MainWindow::on_label_phone_number_textChanged(const QString &)
 
 void MainWindow::on_cancel_button_29_clicked()
 {
-    clearFields();
-     ui->stackedWidget->setCurrentIndex(0);
+     ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::execService(){
+    QFont font;
+    switch(Utils::serviceType){
+    case 0:
+        ui->label_account_9->setText("Введіть номер телефону:");
+        ui->account_number->setValidator(new QRegExpValidator(Utils::phoneRegex, this));
+        Utils::maxNumberOfDigits = 12;
+        ui->stackedWidget->setCurrentIndex(1);
+        break;
+    case 1:
+        ui->label_account_9->setText("Введіть номер рахунку:");
+        ui->account_number->setValidator(new QRegExpValidator(Utils::cardNumberRegex, this));
+        Utils::maxNumberOfDigits = 16;
+        ui->stackedWidget->setCurrentIndex(1);
+        break;
+    case 2:
+        font.setPointSize(14);
+        ui->label_account_9->setFixedWidth(310);
+        ui->label_account_9->setFont(font);
+        ui->label_account_9->setText("Введіть номер особового рахунку:");
+        //add receiver name such as 'КП "Київводоканал"'
+        ui->account_number->setValidator(new QRegExpValidator(Utils::digits, this));
+        Utils::maxNumberOfDigits = 12;
+        ui->stackedWidget->setCurrentIndex(1);
+        break;
+    case 3:
+        ui->label_account_9->setText("Введіть логін:");
+        ui->account_number->setValidator(new QRegExpValidator(Utils::login, this));
+        ui->stackedWidget->setCurrentIndex(1);
+        break;
+    case 4:
+         //add receiver name such as 'Фонд таблєточкі'
+        ui->stackedWidget->setCurrentIndex(10);
+        break;
+
+    }
+
 }
 void MainWindow::on_mob_button_clicked()
 {
-   ui->label_account_9->setText("Введіть номер телефону:");
-   ui->account_number->setValidator(new QRegExpValidator(Utils::phoneRegex, this));
-   Utils::service = 0;
-   Utils::minNumberOfDigits = 10;
-   Utils::maxNumberOfDigits = 12;
-   ui->stackedWidget->setCurrentIndex(1);
+   Utils::service = "Поповнення мобільного";
+   Utils::serviceType = 0;
+   execService();
 }
+
 
 void MainWindow::on_card_button_clicked()
 {
-    ui->label_account_9->setText("Введіть номер карти:");
-    ui->account_number->setValidator(new QRegExpValidator(Utils::cardNumberRegex, this));
-    Utils::service = 1;
-    Utils::minNumberOfDigits = 16;
-    Utils::maxNumberOfDigits = 16;
-    ui->stackedWidget->setCurrentIndex(1);
+    Utils::service = "Переказ на карту";
+    Utils::serviceType = 1;
+    execService();
 }
 
 void MainWindow::on_vodokanal_button_clicked()
 {
-    QFont font;
-    font.setPointSize(14);
-    ui->label_account_9->setFixedWidth(310);
-    ui->label_account_9->setFont(font);
-    ui->label_account_9->setText("Введіть номер особового рахунку:");
-    ui->account_number->setValidator(new QRegExpValidator(Utils::digits, this));
-    Utils::service = 2;
-    Utils::minNumberOfDigits = 12;
-    Utils::maxNumberOfDigits = 12;
-    ui->stackedWidget->setCurrentIndex(1);
+    Utils::service = "Київводоканал";
+    Utils::serviceType = 2;
+    execService();
+
 }
 void MainWindow::on_steam_button_clicked()
 {
-    ui->label_account_9->setText("Введіть логін Steam:");
-    ui->account_number->setValidator(new QRegExpValidator(Utils::login, this));
-    Utils::service = 3;
-    ui->stackedWidget->setCurrentIndex(1);
+    Utils::service = "Поповнення Steam";
+    Utils::serviceType = 3;
+    execService();
+}
+void MainWindow::renderElementsInFolder(QList<QString> & list){
+    for(int i = 0; i<list.size(); i++)
+    {
+        QListWidgetItem *item = new QListWidgetItem;
+        QIcon icon(list.at(i));
+        item->setIcon(icon);
+        item->setStatusTip(QString::number(i));
+        ui->servlistWidget->addItem(item);
+    }
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_servlistWidget_itemClicked(QListWidgetItem *item)
+{
+    //std::cout<<item->statusTip().toStdString()<<std::endl;
+    QString serviceName = item->statusTip();
+    // get service by name
+
+    execService();
+
+
+}
+
+void MainWindow::on_mob_folder_button_clicked()
+{
+    QString folderName("Мобільні послуги");
+    Utils::serviceType = 0;
+    QList<QString> servicesList;
+    //servicesList should be replaced with real list
+    servicesList.append(":/icons/10_грн.jpg");
+
+    renderElementsInFolder(servicesList);
+}
+
+void MainWindow::on_backToMainMenu_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(0);
+     ui->servlistWidget->clear();
+}
+
+void MainWindow::on_bank_folder_button_clicked()
+{
+    QString folderName("Платіжні системи");
+    Utils::serviceType = 1;
+    QList<QString> servicesList;
+    servicesList.append(":/icons/20_грн.png");
+    renderElementsInFolder(servicesList);
+}
+
+void MainWindow::on_com_folder_button_clicked()
+{
+    QString folderName("Комунальні послуги");
+    Utils::serviceType = 2;
+    QList<QString> servicesList;
+     servicesList.append(":/icons/5_грн.jpg");
+    renderElementsInFolder(servicesList);
+}
+
+void MainWindow::on_game_folder_button_clicked()
+{
+    QString folderName("Ігри");
+    Utils::serviceType = 3;
+    QList<QString> servicesList;
+     servicesList.append(":/icons/50_грн.png");
+    renderElementsInFolder(servicesList);
+}
+
+void MainWindow::on_charity_folder_button_clicked()
+{
+    QString folderName("Благодійність");
+    Utils::serviceType = 4;
+    QList<QString> servicesList;
+     servicesList.append(":/icons/100_грн.jpg");
+    renderElementsInFolder(servicesList);
+}
+
+
+void MainWindow::on_charity_nal_clicked()
+{
+    if(ui->charity_nal->checkState())
+        ui->charity_beznal->setChecked(false);
+    ui->charity_cancel->hide();
+}
+
+void MainWindow::on_charity_beznal_clicked()
+{
+    if(ui->charity_beznal->checkState())
+        ui->charity_nal->setChecked(false);
+     ui->charity_cancel->hide();
+}
+
+void MainWindow::on_charity_cancel_clicked()
+{
+    ui->charity_beznal->setChecked(false);
+    ui->charity_nal->setChecked(false);
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_charity_continue_clicked()
+{
+     if(ui->charity_nal->checkState())
+          ui->stackedWidget->setCurrentIndex(2);
+     if(ui->charity_beznal->checkState())
+          ui->stackedWidget->setCurrentIndex(3);
+
 }
