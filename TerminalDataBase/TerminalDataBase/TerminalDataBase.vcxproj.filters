@@ -31,28 +31,19 @@
     <Filter Include="Файлы заголовков\database\repository">
       <UniqueIdentifier>{098d0744-8645-45ee-8638-dc420f51ba9f}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Filter Include="Файлы заголовков\controller">
+      <UniqueIdentifier>{177dffa2-48ce-4342-bb88-915bc147de2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DBMain.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\sqlite-amalgamation-3330000\shell.c">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\sqlite-amalgamation-3330000\sqlite3.c">
+    <ClCompile Include="..\..\..\Downloads\sqlite-amalgamation-3330000\sqlite3.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\sqlite-amalgamation-3330000\sqlite3.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\sqlite-amalgamation-3330000\sqlite3ext.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Account.h">
       <Filter>Файлы заголовков\model</Filter>
     </ClInclude>
@@ -116,5 +107,11 @@
     <ClInclude Include="PaycardRepository.h">
       <Filter>Файлы заголовков\database\repository</Filter>
     </ClInclude>
+    <ClInclude Include="ServiceManager.h">
+      <Filter>Файлы заголовков\controller</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
