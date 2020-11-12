@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.setWindowIcon(QIcon(":/icons/logo.png"));
     w.setWindowTitle("Payment terminal developed by Pershuta, Nakytniak, Levchuk");
+    w.setWindowFlags(Qt::MSWindowsFixedSizeDialogHint);
     w.show();
     return a.exec();
 }
