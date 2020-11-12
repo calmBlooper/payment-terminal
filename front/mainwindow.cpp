@@ -754,11 +754,18 @@ void MainWindow::on_charity_cancel_clicked()
 
 void MainWindow::on_charity_continue_clicked()
 {
-     if(ui->charity_nal->checkState())
-          ui->stackedWidget->setCurrentIndex(2);
-     if(ui->charity_beznal->checkState())
-          ui->stackedWidget->setCurrentIndex(3);
 
+     if(ui->charity_nal->checkState())
+     {
+          ui->stackedWidget->setCurrentIndex(2);
+          ui->nalCommisionLabel->setText("");
+     }
+     if(ui->charity_beznal->checkState()){
+         ui->f1->setChecked(true);
+         //get text about commision and max commision
+         ui->beznalCommisionLabel->setText("");
+         ui->stackedWidget->setCurrentIndex(3);
+}
 }
 
 void MainWindow::on_about_button_clicked()

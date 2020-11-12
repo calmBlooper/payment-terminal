@@ -56,8 +56,8 @@
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: #331E38;
-border-radius: 12px;
-border-width: 5px;
+border-radius: 10px;
+border-width: 3px;
 border-color:  #ffffff;
 border-style:solid;
 outline: 0;
@@ -83,9 +83,8 @@ color: white;</string>
       <string notr="true">background-color: #A0C1B9;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
-border-top-width: 3px;
-border-left-width: 3px;
-border-right-width: 3px;
+border-width: 5px;
+border-bottom-width: 0px;
 border-color:  #70A0AF;
 border-style:solid;
 outline: 0;</string>
@@ -178,9 +177,8 @@ border-bottom-right-radius: 12px;
       <string notr="true">background-color: #A0C1B9;
 border-bottom-left-radius: 10px;
 border-bottom-right-radius: 10px;
-border-bottom-width: 3px;
-border-left-width: 3px;
-border-right-width: 3px;
+border-width: 5px;
+border-top-width: 0px;
 border-color:  #70A0AF;
 border-style:solid;
 outline: 0;</string>
@@ -211,9 +209,8 @@ outline: 0;</string>
       <string notr="true">background-color: #A0C1B9;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
-border-top-width: 3px;
-border-left-width: 3px;
-border-right-width: 3px;
+border-width: 5px;
+border-bottom-width: 0px;
 border-color:  #70A0AF;
 border-style:solid;
 outline: 0;</string>
@@ -248,9 +245,8 @@ outline: 0;</string>
       <string notr="true">background-color: #A0C1B9;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
-border-top-width: 3px;
-border-left-width: 3px;
-border-right-width: 3px;
+border-width: 5px;
+border-bottom-width: 0px;
 border-color:  #70A0AF;
 border-style:solid;
 outline: 0;</string>
@@ -290,9 +286,8 @@ outline: 0;</string>
       <string notr="true">background-color: #A0C1B9;
 border-bottom-left-radius: 10px;
 border-bottom-right-radius: 10px;
-border-bottom-width: 3px;
-border-left-width: 3px;
-border-right-width: 3px;
+border-width: 5px;
+border-top-width: 0px;
 border-color:  #70A0AF;
 border-style:solid;
 outline: 0;</string>
@@ -356,9 +351,8 @@ border-bottom-right-radius: 8px;</string>
       <string notr="true">background-color: #A0C1B9;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
-border-top-width: 3px;
-border-left-width: 3px;
-border-right-width: 3px;
+border-width: 5px;
+border-bottom-width: 0px;
 border-color:  #70A0AF;
 border-style:solid;
 outline: 0;</string>
@@ -517,9 +511,8 @@ p, li { white-space: pre-wrap; }
       <string notr="true">background-color: #A0C1B9;
 border-bottom-left-radius: 10px;
 border-bottom-right-radius: 10px;
-border-bottom-width: 3px;
-border-left-width: 3px;
-border-right-width: 3px;
+border-width: 5px;
+border-top-width: 0px;
 border-color:  #70A0AF;
 border-style:solid;
 outline: 0;</string>
@@ -734,9 +727,8 @@ Steam</string>
       <string notr="true">background-color: #A0C1B9;
 border-bottom-left-radius: 10px;
 border-bottom-right-radius: 10px;
-border-bottom-width: 3px;
-border-left-width: 3px;
-border-right-width: 3px;
+border-width: 5px;
+border-top-width: 0px;
 border-color:  #70A0AF;
 border-style:solid;
 outline: 0;</string>
@@ -772,9 +764,8 @@ outline: 0;</string>
       <string notr="true">background-color: #A0C1B9;
 border-bottom-left-radius: 10px;
 border-bottom-right-radius: 10px;
-border-bottom-width: 3px;
-border-left-width: 3px;
-border-right-width: 3px;
+border-width: 5px;
+border-top-width: 0px;
 border-color:  #70A0AF;
 border-style:solid;
 outline: 0;</string>
@@ -810,9 +801,8 @@ outline: 0;</string>
       <string notr="true">background-color: #A0C1B9;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
-border-top-width: 3px;
-border-left-width: 3px;
-border-right-width: 3px;
+border-width: 5px;
+border-bottom-width: 0px;
 border-color:  #70A0AF;
 border-style:solid;
 outline: 0;</string>
@@ -853,35 +843,6 @@ outline: 0;</string>
     <zorder>steam_button</zorder>
    </widget>
    <widget class="QWidget" name="account_page">
-    <widget class="QPushButton" name="go_to_payment_page">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>500</y>
-       <width>201</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Далі</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="num_4_account">
      <property name="geometry">
       <rect>
@@ -1178,35 +1139,6 @@ outline: 0;</string>
       <string>Безготівковий платіж</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="cancel_button">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>500</y>
-       <width>201</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Скасувати</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="num_6_account">
      <property name="geometry">
       <rect>
@@ -1357,6 +1289,77 @@ outline: 0;</string>
      <property name="clearButtonEnabled">
       <bool>true</bool>
      </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>490</y>
+       <width>451</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="go_to_payment_page">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #331E38;
+border-radius: 10px;
+border-width: 3px;
+border-color:  #ffffff;
+border-style:solid;
+outline: 0;
+color: white;</string>
+        </property>
+        <property name="text">
+         <string>Далі</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cancel_button">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #F4E8C1;
+border-radius: 10px;
+border-width: 5px;
+border-color:  #331E38;
+border-style:solid;
+outline: 0;</string>
+        </property>
+        <property name="text">
+         <string>Скасувати</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="enter_cash">
@@ -1770,12 +1773,13 @@ outline: 0;</string>
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
+      <string notr="true">background-color: #331E38;
 border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
+border-width: 3px;
+border-color:  #ffffff;
 border-style:solid;
-outline: 0;</string>
+outline: 0;
+color: white;</string>
      </property>
      <property name="text">
       <string>Підтвердити платіж</string>
@@ -1799,35 +1803,6 @@ outline: 0;</string>
     <zorder>uan20_button</zorder>
    </widget>
    <widget class="QWidget" name="card_info">
-    <widget class="QPushButton" name="goto_transfer_details">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>570</y>
-       <width>201</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Далі</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="year_field">
      <property name="geometry">
       <rect>
@@ -2023,35 +1998,6 @@ outline: 0;</string>
      </property>
      <property name="clearButtonEnabled">
       <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancel_button_16">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>570</y>
-       <width>201</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Повернутись </string>
      </property>
     </widget>
     <widget class="QLabel" name="title_3">
@@ -2573,6 +2519,77 @@ outline: 0;</string>
       <string/>
      </property>
     </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>530</y>
+       <width>451</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="goto_transfer_details">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #331E38;
+border-radius: 10px;
+border-width: 3px;
+border-color:  #ffffff;
+border-style:solid;
+outline: 0;
+color: white;</string>
+        </property>
+        <property name="text">
+         <string>Далі</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cancel_button_16">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #F4E8C1;
+border-radius: 10px;
+border-width: 5px;
+border-color:  #331E38;
+border-style:solid;
+outline: 0;</string>
+        </property>
+        <property name="text">
+         <string>Повернутись </string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="sum_of_transfer">
     <widget class="QLabel" name="beznalCommisionLabel">
@@ -2586,35 +2603,6 @@ outline: 0;</string>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Комісія 5% на поповнення мобільного рахунку. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Максимальний розмір комісії 50 грн&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Комісія 3% для переказів.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Максимальний розмір комісії 200 грн &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancel_sum_button">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>570</y>
-       <width>201</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Повернутись</string>
      </property>
     </widget>
     <widget class="QLabel" name="digipay_label_3">
@@ -2641,35 +2629,6 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="goto_pin">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>570</y>
-       <width>201</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Далі</string>
      </property>
     </widget>
     <widget class="QPushButton" name="num_4_transfer">
@@ -3100,6 +3059,77 @@ outline: 0;</string>
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>490</y>
+       <width>451</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="goto_pin">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #331E38;
+border-radius: 10px;
+border-width: 3px;
+border-color:  #ffffff;
+border-style:solid;
+outline: 0;
+color: white;</string>
+        </property>
+        <property name="text">
+         <string>Далі</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cancel_sum_button">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #F4E8C1;
+border-radius: 10px;
+border-width: 5px;
+border-color:  #331E38;
+border-style:solid;
+outline: 0;</string>
+        </property>
+        <property name="text">
+         <string>Повернутись</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="confirm_transfer">
     <widget class="QLabel" name="digipay_label_15">
@@ -3126,64 +3156,6 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancel_button_29">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>570</y>
-       <width>201</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Скасувати</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="confirm_payment">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>570</y>
-       <width>201</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Підтвердити платіж</string>
      </property>
     </widget>
     <widget class="QLabel" name="title_5">
@@ -3235,7 +3207,7 @@ border-style:solid;
 outline: 0;</string>
      </property>
      <property name="text">
-      <string>Номер рахунку:</string>
+      <string>Отримувач:</string>
      </property>
     </widget>
     <widget class="QLabel" name="card_data">
@@ -3316,6 +3288,106 @@ outline: 0;</string>
       <string>До сплати:</string>
      </property>
     </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>510</y>
+       <width>681</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QPushButton" name="confirm_payment">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #331E38;
+border-radius: 10px;
+border-width: 3px;
+border-color:  #ffffff;
+border-style:solid;
+outline: 0;
+color: white;</string>
+        </property>
+        <property name="text">
+         <string>Підтвердити платіж</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cancel_button_29">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #F4E8C1;
+border-radius: 10px;
+border-width: 5px;
+border-color:  #331E38;
+border-style:solid;
+outline: 0;</string>
+        </property>
+        <property name="text">
+         <string>Повернутись</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cancelTransfer">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #F4E8C1;
+border-radius: 10px;
+border-width: 5px;
+border-color:  #331E38;
+border-style:solid;
+outline: 0;</string>
+        </property>
+        <property name="text">
+         <string>Скасувати</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="checkPage">
     <widget class="QLabel" name="digipay_label_5">
@@ -3344,62 +3416,6 @@ p, li { white-space: pre-wrap; }
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="check">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>200</y>
-       <width>461</width>
-       <height>381</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #ffffff;
-border-style: solid;
-border-width: 3px;
-border-radius: 8px</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="back_to_main_menu">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>620</y>
-       <width>321</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-width: 3px;
-border-radius: 8px;
-border-color: black;
-border-style: solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Повернутись до головного меню</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
@@ -3424,34 +3440,94 @@ border-radius: 8px</string>
       <string>Операція виконанана успішно</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="save_check">
+    <widget class="QTextBrowser" name="check">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>620</y>
-       <width>321</width>
-       <height>51</height>
+       <x>90</x>
+       <y>180</y>
+       <width>621</width>
+       <height>391</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
+      <string notr="true">background-color: #ffffff;
+border-radius: 10px;
 border-width: 3px;
-border-radius: 8px;
-border-color: black;
-border-style: solid;
+border-color:  #000000;
+border-style:solid;
 outline: 0;</string>
      </property>
-     <property name="text">
-      <string>Зберегти квитанцію</string>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>590</y>
+       <width>621</width>
+       <height>71</height>
+      </rect>
      </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QPushButton" name="save_check">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #F4E8C1;
+border-radius: 10px;
+border-width: 5px;
+border-color:  #331E38;
+border-style:solid;
+outline: 0;</string>
+        </property>
+        <property name="text">
+         <string>Зберегти квитанцію</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="back_to_main_menu">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #331E38;
+border-radius: 10px;
+border-width: 3px;
+border-color:  #ffffff;
+border-style:solid;
+outline: 0;
+color: white;</string>
+        </property>
+        <property name="text">
+         <string>Повернутись до головного меню</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="rejectedPage">
@@ -3494,12 +3570,13 @@ outline: 0;</string>
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
+      <string notr="true">background-color: #331E38;
+border-radius: 10px;
 border-width: 3px;
-border-radius: 8px;
-border-color: black;
-border-style: solid;
-outline: 0;</string>
+border-color:  #ffffff;
+border-style:solid;
+outline: 0;
+color: white;</string>
      </property>
      <property name="text">
       <string>Повернутись до головного меню</string>
@@ -3850,7 +3927,7 @@ outline: 0;</string>
      <property name="styleSheet">
       <string notr="true">background-color: #F4E8C1;
 border-radius: 10px;
-border-width: 3px;
+border-width: 5px;
 border-color:  #331E38;
 border-style:solid;
 outline: 0;</string>
@@ -3953,12 +4030,13 @@ outline: 0;</string>
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
+      <string notr="true">background-color: #331E38;
 border-radius: 10px;
 border-width: 3px;
-border-color:  #331E38;
+border-color:  #ffffff;
 border-style:solid;
-outline: 0;</string>
+outline: 0;
+color: white;</string>
      </property>
      <property name="text">
       <string>OK</string>
@@ -4107,8 +4185,8 @@ outline: 0;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: #331E38;
-border-radius: 12px;
-border-width: 5px;
+border-radius: 10px;
+border-width: 3px;
 border-color:  #ffffff;
 border-style:solid;
 outline: 0;
@@ -4213,7 +4291,7 @@ border-radius: 8px</string>
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #F4E8C1;
+         <string notr="true">background-color: #ffffff;
 border-radius: 10px;
 border-width: 3px;
 border-color:  #331E38;
@@ -4242,7 +4320,7 @@ outline: 0;</string>
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #F4E8C1;
+         <string notr="true">background-color: #ffffff;
 border-radius: 10px;
 border-width: 3px;
 border-color:  #331E38;
@@ -4280,13 +4358,12 @@ outline: 0;</string>
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #331E38;
-border-radius: 12px;
+      <string notr="true">background-color: #F4E8C1;
+border-radius: 10px;
 border-width: 5px;
-border-color:  #ffffff;
+border-color:  #331E38;
 border-style:solid;
-outline: 0;
-color: white;</string>
+outline: 0;</string>
      </property>
      <property name="text">
       <string>Повернутись</string>
@@ -4317,8 +4394,8 @@ color: white;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: #331E38;
-border-radius: 12px;
-border-width: 5px;
+border-radius: 10px;
+border-width: 3px;
 border-color:  #ffffff;
 border-style:solid;
 outline: 0;
@@ -4328,10 +4405,10 @@ color: white;</string>
       <string>Продовжити</string>
      </property>
     </widget>
-    <zorder>charity_continue</zorder>
     <zorder>digipay_label_4</zorder>
     <zorder>label_3</zorder>
     <zorder>verticalLayoutWidget</zorder>
+    <zorder>charity_continue</zorder>
     <zorder>charity_cancel</zorder>
    </widget>
    <widget class="QWidget" name="page">
@@ -4389,8 +4466,8 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: #331E38;
-border-radius: 12px;
-border-width: 5px;
+border-radius: 10px;
+border-width: 3px;
 border-color:  #ffffff;
 border-style:solid;
 outline: 0;
@@ -4415,7 +4492,7 @@ color: white;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
+      <string notr="true">background-color: #ffffff;
 border-style: solid;
 border-width: 3px;
 border-radius: 8px;
