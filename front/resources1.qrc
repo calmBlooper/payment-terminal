@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>icons/back_arrow.png</file>
+        <file>about/About.txt</file>
     </qresource>
 </RCC>

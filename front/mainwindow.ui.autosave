@@ -32,7 +32,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="main_menu">
     <widget class="QPushButton" name="about_button">
@@ -58,7 +58,7 @@
       <string notr="true">background-color: #331E38;
 border-radius: 12px;
 border-width: 5px;
-border-color:  #ffffff;
+border-color:  #000000;
 border-style:solid;
 outline: 0;
 color: white;</string>
@@ -871,12 +871,13 @@ outline: 0;</string>
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
+      <string notr="true">background-color: #331E38;
+border-radius: 12px;
 border-width: 5px;
-border-color:  #331E38;
+border-color:  #000000;
 border-style:solid;
-outline: 0;</string>
+outline: 0;
+color: white;</string>
      </property>
      <property name="text">
       <string>Далі</string>
@@ -1196,12 +1197,13 @@ outline: 0;</string>
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
+      <string notr="true">background-color: #331E38;
+border-radius: 12px;
 border-width: 5px;
-border-color:  #331E38;
+border-color:  #000000;
 border-style:solid;
-outline: 0;</string>
+outline: 0;
+color: white;</string>
      </property>
      <property name="text">
       <string>Скасувати</string>
@@ -3131,8 +3133,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="cancel_button_29">
      <property name="geometry">
       <rect>
-       <x>430</x>
-       <y>570</y>
+       <x>280</x>
+       <y>510</y>
        <width>201</width>
        <height>71</height>
       </rect>
@@ -3154,14 +3156,14 @@ border-style:solid;
 outline: 0;</string>
      </property>
      <property name="text">
-      <string>Скасувати</string>
+      <string>Повернутись</string>
      </property>
     </widget>
     <widget class="QPushButton" name="confirm_payment">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>570</y>
+       <x>60</x>
+       <y>510</y>
        <width>201</width>
        <height>71</height>
       </rect>
@@ -3314,6 +3316,35 @@ outline: 0;</string>
      </property>
      <property name="text">
       <string>До сплати:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancelTransfer">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>510</y>
+       <width>201</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #F4E8C1;
+border-radius: 10px;
+border-width: 5px;
+border-color:  #331E38;
+border-style:solid;
+outline: 0;</string>
+     </property>
+     <property name="text">
+      <string>Скасувати</string>
      </property>
     </widget>
    </widget>

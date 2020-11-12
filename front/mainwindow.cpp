@@ -3,6 +3,8 @@
 #include <iostream>
 #include <QRegExpValidator>
 #include<stdio.h>
+#include <QFile>
+#include <QTextStream>
 #include "Utils.h"
 
 
@@ -25,25 +27,27 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::clearFields(){
-    ui->account_number->setText("");
+    ui->account_number->clear();
     ui->is_transfer_beznal->setChecked(false);
-    ui->label_trans_sum->setText("");
+    ui->label_trans_sum->clear();
     ui->account_number->setPlaceholderText("");
     ui->actual_cash_entered_label->setText("0");
     ui->actual_cash_bez_com->setText("0");
     ui->account_number->setStyleSheet(Utils::style_usual);
     ui->confirm_nal_payment->setHidden(true);
     ui->cancel_payment_button->setHidden(false);
-    ui->card_number->setText("");
-    ui->month_field->setText("");
-    ui->year_field->setText("");
-    ui->cvv2_field->setText("");
+    ui->card_number->clear();
+    ui->month_field->clear();
+    ui->year_field->clear();
+    ui->cvv2_field->clear();
     ui->pin_field->clear();
     ui->label_account_9->setFixedWidth(250);
     QFont font;
     font.setPointSize(15);
     ui->label_account_9->setFont(font);
     ui->servlistWidget->clear();
+    ui->charity_beznal->setChecked(false);
+    ui->charity_nal->setChecked(false);
 }
 QString replaceAll(QString str){
     for(int i = 0; i< str.length(); i++){
@@ -126,10 +130,14 @@ void MainWindow::on_go_to_payment_page_clicked()
         ui->account_number->setStyleSheet(Utils::style_usual);
 
         if(ui->is_transfer_beznal->isChecked()){
-            ui->f1_button->setChecked(true);
+            ui->f1->setChecked(true);
+            //get text about commision and max commision
+            ui->beznalCommisionLabel->setText("");
             ui->stackedWidget->setCurrentIndex(3);
         }
         else{
+            //get text about commision and max commision
+            ui->nalCommisionLabel->setText("");
             ui->confirm_nal_payment->setHidden(true);
             ui->stackedWidget->setCurrentIndex(2);
         }
@@ -283,7 +291,7 @@ void MainWindow::on_uan1000_button_clicked()
 void MainWindow::addCardData(QString data)
 {
 
-  if( ui->f1_button->isChecked()&& replaceAll(ui->card_number->text()+data).length()<17){
+  if( ui->f1->isChecked()&& replaceAll(ui->card_number->text()+data).length()<17){
      ui->card_number->setText(ui->card_number->text()+data);
      if(replaceAll(ui->card_number->text()).length()==16)
         on_f2_clicked();
@@ -308,21 +316,21 @@ void MainWindow::addCardData(QString data)
 
 void MainWindow::on_f1_clicked()
 {
-    ui->f1_button->setChecked(true);
+    ui->f1->setChecked(true);
     ui->f2->setChecked(false);
     ui->f3->setChecked(false);
 }
 
 void MainWindow::on_f2_clicked()
 {
-    ui->f1_button->setChecked(false);
+    ui->f1->setChecked(false);
     ui->f2->setChecked(true);
     ui->f3->setChecked(false);
 }
 
 void MainWindow::on_f3_clicked()
 {
-    ui->f1_button->setChecked(false);
+    ui->f1->setChecked(false);
     ui->f2->setChecked(false);
     ui->f3->setChecked(true);
 }
@@ -372,7 +380,7 @@ void MainWindow::on_num_0_data_clicked()
 
 void MainWindow::on_cl_one_data_clicked()
 {
-    if( ui->f1_button->isChecked()){
+    if( ui->f1->isChecked()){
         ui->card_number->backspace();
     }
     if( ui->f2->isChecked()){
@@ -388,7 +396,7 @@ void MainWindow::on_cl_one_data_clicked()
 
 void MainWindow::on_cl_all_data_clicked()
 {
-    if( ui->f1_button->isChecked()){
+    if( ui->f1->isChecked()){
         ui->card_number->clear();
     }
     if( ui->f2->isChecked()){
@@ -570,7 +578,7 @@ void MainWindow::on_label_trans_sum_textChanged(const QString &)
     ui->label_trans_sum->setStyleSheet(Utils::style_usual);
 }
 
-void MainWindow::on_label_phone_number_textChanged(const QString &)
+void MainWindow::on_account_number_textChanged(const QString &)
 {
     ui->account_number->setStyleSheet(Utils::style_usual);
 }
@@ -751,4 +759,26 @@ void MainWindow::on_charity_continue_clicked()
      if(ui->charity_beznal->checkState())
           ui->stackedWidget->setCurrentIndex(3);
 
+}
+
+void MainWindow::on_about_button_clicked()
+{
+    QFile file(":/about/About.txt");
+    QTextStream in (&file);
+    file.open(QIODevice::ReadOnly);
+    ui->textBrowser->setText(in.readAll());
+    std::cout<<in.readAll().toStdString()<<std::endl;
+    ui->stackedWidget->setCurrentIndex(11);
+}
+
+void MainWindow::on_about_back_button_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->textBrowser->clear();
+}
+
+void MainWindow::on_cancelTransfer_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    clearFields();
 }

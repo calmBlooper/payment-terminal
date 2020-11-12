@@ -130,6 +130,8 @@ private slots:
 
     void on_about_back_button_clicked();
 
+    void on_cancelTransfer_clicked();
+    
 private:
    Ui::MainWindow *ui;
    void renderElementsInFolder(QList<QString>&);
