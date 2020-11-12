@@ -32,7 +32,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="main_menu">
     <widget class="QPushButton" name="about_button">
@@ -1369,7 +1369,7 @@ outline: 0;</string>
        <x>590</x>
        <y>470</y>
        <width>150</width>
-       <height>80</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="cursor">
@@ -1385,7 +1385,7 @@ outline: 0;</string>
      <property name="iconSize">
       <size>
        <width>150</width>
-       <height>80</height>
+       <height>100</height>
       </size>
      </property>
     </widget>
@@ -1395,7 +1395,7 @@ outline: 0;</string>
        <x>420</x>
        <y>470</y>
        <width>150</width>
-       <height>80</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="cursor">
@@ -1508,7 +1508,7 @@ outline: 0;</string>
        <x>250</x>
        <y>470</y>
        <width>150</width>
-       <height>80</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="cursor">
@@ -1547,11 +1547,14 @@ outline: 0;</string>
        <x>250</x>
        <y>370</y>
        <width>150</width>
-       <height>80</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
@@ -1602,7 +1605,7 @@ outline: 0;</string>
        <x>420</x>
        <y>370</y>
        <width>150</width>
-       <height>80</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="cursor">
@@ -1628,7 +1631,7 @@ outline: 0;</string>
        <x>590</x>
        <y>370</y>
        <width>150</width>
-       <height>80</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="cursor">
@@ -1680,7 +1683,7 @@ p, li { white-space: pre-wrap; }
        <x>80</x>
        <y>370</y>
        <width>150</width>
-       <height>80</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="cursor">
@@ -1735,7 +1738,7 @@ outline: 0;</string>
        <x>80</x>
        <y>470</y>
        <width>150</width>
-       <height>80</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="cursor">
