@@ -34,6 +34,11 @@ int main(void)
 	vn.replenish(888,Currency::UAH);
 	db.getPrivateRepAcc().update(vn);
 
+	std::cout << "By id:";
+
+	auto vnid = db.getPrivateRepAcc().getById(vn.getId());
+	std::cout << vnid << std::endl;
+
 	PrivateAccount wrong(-100,Currency::UAH, 100.0, "d", "d");
 	db.getPrivateRepAcc().update(wrong);
 	db.getPrivateRepAcc().remove(wrong);
