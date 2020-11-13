@@ -10,7 +10,7 @@ namespace Currency {
 #endif
 
 const std::pair<double, const char*> convert(const double& amount, const char* from, const char* to) {
-	double result = amount;
+		double result = amount;
 	// some conversion magic here
 	return {result,to};
 }
