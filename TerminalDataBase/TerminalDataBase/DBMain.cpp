@@ -65,7 +65,6 @@ int main(void)
 
 	MobileAccount mobAcc(Currency::UAH, 100.0, "380-060-37-890");
 	db.getMobileRepAcc().insert(mobAcc);
-
 	auto a2 = db.getMobileRepAcc().getByKey("380-060-37-890");
 	std::cout << a2 << std::endl;
 
