@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,6 +20,27 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    Account.h \
+    AccountTable.h \
+    CurrencyConverter.h \
+    DBConnector.h \
+    DBManager.h \
+    EWalletAccount.h \
+    EWalletAccountRepository.h \
+    Identifiable.h \
+    MobileAccount.h \
+    MobileAccountRepository.h \
+    Paycard.h \
+    PaycardRepository.h \
+    PaycardTable.h \
+    PrivateAccount.h \
+    PrivateAccountRepository.h \
+    PublicAccount.h \
+    PublicAccountRepository.h \
+    Repository.h \
+    Service.h \
+    ServiceRepository.h \
+    ServiceTable.h \
     Utils.h \
     mainwindow.h
 
