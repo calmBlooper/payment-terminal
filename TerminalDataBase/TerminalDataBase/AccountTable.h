@@ -134,7 +134,8 @@ namespace EWalletAccountTable {
 	const std::string INSERT = "INSERT INTO " + TABLE_NAME + "(" + COLUMN_2_CURRENCY + ", " + COLUMN_3_BALANCE + ", " + COLUMN_4_LOGIN + ", " + COLUMN_5_EMAIL + ") VALUES (?,?,?,?)";
 	const std::string SELECT = "SELECT * FROM " + TABLE_NAME;
 	const std::string DELETE = "DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_1_ID + "=?";
-
+	
+	const std::string GET_BY_LOGIN_EMAIL = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_4_LOGIN + "=? AND " + COLUMN_5_EMAIL + "=?";
 	const std::string GET_BY_LOGIN = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_4_LOGIN + "=?";
 	const std::string GET_BY_EMAIL = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_5_EMAIL + "=?";
 

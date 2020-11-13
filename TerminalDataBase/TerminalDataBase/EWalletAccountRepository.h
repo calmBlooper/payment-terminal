@@ -10,7 +10,7 @@
 
 #include "DBConnector.h"
 
-class EWalletAccountRepository : public Repository<EWalletAccount, std::string> {
+class EWalletAccountRepository : public Repository<EWalletAccount, std::pair<std::string, std::string>> {
 private:
 	sqlite3_stmt* stmt = 0;
 	std::vector<EWalletAccount> data;
@@ -61,7 +61,27 @@ public:
 		}
 	}
 
-	virtual EWalletAccount getByKey(const std::string& login) {
+	virtual EWalletAccount getByKey(const std::pair<std::string, std::string>& loginEmail) {
+		char* zErrMsg = 0;
+		int rc = 0;
+		sqlite3* DB_connection = (DBConnector::GetInstance()->getConnection());
+		rc = sqlite3_prepare_v2(DB_connection, EWalletAccountTable::GET_BY_LOGIN_EMAIL.c_str(), -1, &stmt, 0);
+
+		rc = sqlite3_exec(DB_connection, "BEGIN TRANSACTION", 0, 0, &zErrMsg);
+		rc = sqlite3_bind_text(stmt, 1, loginEmail.first.c_str(), loginEmail.first.length(), SQLITE_STATIC);
+		rc = sqlite3_bind_text(stmt, 2, loginEmail.second.c_str(), loginEmail.second.length(), SQLITE_STATIC);
+		retrieveData();
+		rc = sqlite3_exec(DB_connection, "END TRANSACTION", 0, 0, &zErrMsg);
+
+		checkSQLError(rc, zErrMsg);
+
+		rc = sqlite3_reset(stmt);
+		rc = sqlite3_finalize(stmt);
+
+		return data.empty() ? EWalletAccount() : data.front();
+	};
+
+	EWalletAccount getByLogin(const std::string& login) {
 		char* zErrMsg = 0;
 		int rc = 0;
 		sqlite3* DB_connection = (DBConnector::GetInstance()->getConnection());
@@ -69,6 +89,25 @@ public:
 
 		rc = sqlite3_exec(DB_connection, "BEGIN TRANSACTION", 0, 0, &zErrMsg);
 		rc = sqlite3_bind_text(stmt, 1, login.c_str(), login.length(), SQLITE_STATIC);
+		retrieveData();
+		rc = sqlite3_exec(DB_connection, "END TRANSACTION", 0, 0, &zErrMsg);
+
+		checkSQLError(rc, zErrMsg);
+
+		rc = sqlite3_reset(stmt);
+		rc = sqlite3_finalize(stmt);
+
+		return data.empty() ? EWalletAccount() : data.front();
+	};
+
+	EWalletAccount getByEmail(const std::string& email) {
+		char* zErrMsg = 0;
+		int rc = 0;
+		sqlite3* DB_connection = (DBConnector::GetInstance()->getConnection());
+		rc = sqlite3_prepare_v2(DB_connection, EWalletAccountTable::GET_BY_EMAIL.c_str(), -1, &stmt, 0);
+
+		rc = sqlite3_exec(DB_connection, "BEGIN TRANSACTION", 0, 0, &zErrMsg);
+		rc = sqlite3_bind_text(stmt, 1, email.c_str(), email.length(), SQLITE_STATIC);
 		retrieveData();
 		rc = sqlite3_exec(DB_connection, "END TRANSACTION", 0, 0, &zErrMsg);
 
