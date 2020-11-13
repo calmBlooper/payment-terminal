@@ -41,7 +41,7 @@ namespace PrivateAccountTable {
 	const std::string DELETE = "DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_1_ID + "=?";
 
 	const std::string GET = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_4_NAME + "=? AND " + COLUMN_5_SURENAME + "=?";
-	//const std::string GET_BY_ID = "SELECT * FROM " + TABLE_NAME + "  WHERE " + COLUMN_1_ID + "=?";
+	const std::string GET_BY_ID = "SELECT * FROM " + TABLE_NAME + "  WHERE " + COLUMN_1_ID + "=?";
 
 	//const std::string UPDATE = "UPDATE " + TABLE_NAME + " SET " + COLUMN_2_LOGIN + "=? AND " + COLUMN_3_PASSWORD + "=? WHERE" + COLUMN_2_LOGIN + "=? AND " + COLUMN_3_PASSWORD + "=?";
 	const std::string UPDATE_BY_ID = "UPDATE " + TABLE_NAME + " SET " + COLUMN_3_BALANCE + "=? WHERE " + COLUMN_1_ID + "=?";

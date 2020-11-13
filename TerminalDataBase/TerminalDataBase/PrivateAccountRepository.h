@@ -49,6 +49,25 @@ public:
 		}
 	}
 
+	PrivateAccount getById(const __int64& id) {
+		char* zErrMsg = 0;
+		int rc = 0;
+		sqlite3* DB_connection = (DBConnector::GetInstance()->getConnection());
+		rc = sqlite3_prepare_v2(DB_connection, PrivateAccountTable::GET_BY_ID.c_str(), -1, &stmt, 0);
+
+		rc = sqlite3_exec(DB_connection, "BEGIN TRANSACTION", 0, 0, &zErrMsg);
+		rc = sqlite3_bind_int(stmt, 1, id);
+		retrieveData();
+		rc = sqlite3_exec(DB_connection, "END TRANSACTION", 0, 0, &zErrMsg);
+
+		checkSQLError(rc, zErrMsg);
+
+		rc = sqlite3_reset(stmt);
+		rc = sqlite3_finalize(stmt);
+
+		return data.empty() ? PrivateAccount() : data.front();
+	};
+
 	virtual PrivateAccount getByKey(const std::pair<std::string, std::string>& nameSurename) {
 		char* zErrMsg = 0;
 		int rc = 0;
