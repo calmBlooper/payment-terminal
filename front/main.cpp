@@ -15,7 +15,7 @@
 #include "DBManager.h"
 
 
-int main()
+int main(int argc, char* argv[])
 {
 	DBManager db;
 
@@ -121,14 +121,14 @@ int main()
 
 	auto kkk = db.getPaycardRep().getAll();
 	for (auto x : kkk) std::cout << x << std::endl;
-  /*QApplication a(argc, argv);
+  QApplication a(argc, argv);
 
     MainWindow w;
     w.setWindowIcon(QIcon(":/icons/logo.png"));
     w.setWindowTitle("Payment terminal developed by Pershuta, Nakytniak, Levchuk");
     w.setWindowFlags(Qt::MSWindowsFixedSizeDialogHint);
     w.show();
-	a.exec();*/
+	a.exec();
 	return 0;
 }
 
