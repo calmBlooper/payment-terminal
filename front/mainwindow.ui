@@ -32,7 +32,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="main_menu">
     <widget class="QPushButton" name="about_button">
@@ -4506,8 +4506,8 @@ border-radius: 8px;
   </widget>
  </widget>
  <resources>
-  <include location="resources1.qrc"/>
   <include location="resources.qrc"/>
+  <include location="resources1.qrc"/>
  </resources>
  <connections>
   <connection>

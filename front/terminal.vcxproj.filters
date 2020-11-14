@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files\controller">
+      <UniqueIdentifier>{901ecada-d3a8-4b78-ae5e-96ca241c2d1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\database">
+      <UniqueIdentifier>{600c50b9-3f14-42ed-9193-62336107bb27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\database\repository">
+      <UniqueIdentifier>{d9f6d314-ef65-4735-82aa-5209821c7986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\database\tables">
+      <UniqueIdentifier>{b7b39532-a6d3-4842-a2a0-b357f94e26ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model">
+      <UniqueIdentifier>{f0b4cee1-9447-4ee9-8a43-55f90030ad33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utility">
+      <UniqueIdentifier>{dd2c37f9-e812-445c-9567-e29942c50a6c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mainwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="packages\sqlite3_c_plus_plus.1.0.3\build\native\include\sqlite3.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="mainwindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="ServiceManager.h">
+      <Filter>Header Files\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="DBConnector.h">
+      <Filter>Header Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="DBManager.h">
+      <Filter>Header Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="EWalletAccountRepository.h">
+      <Filter>Header Files\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="PaycardRepository.h">
+      <Filter>Header Files\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="PrivateAccountRepository.h">
+      <Filter>Header Files\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicAccountRepository.h">
+      <Filter>Header Files\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository.h">
+      <Filter>Header Files\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceRepository.h">
+      <Filter>Header Files\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountTable.h">
+      <Filter>Header Files\database\tables</Filter>
+    </ClInclude>
+    <ClInclude Include="PaycardTable.h">
+      <Filter>Header Files\database\tables</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceTable.h">
+      <Filter>Header Files\database\tables</Filter>
+    </ClInclude>
+    <ClInclude Include="Account.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="EWalletAccount.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="Identifiable.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="MobileAccount.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="Paycard.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="PrivateAccount.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicAccount.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="Service.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrencyConverter.h">
+      <Filter>Header Files\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="MobileAccountRepository.h">
+      <Filter>Header Files\database\repository</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="mainwindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\1000_???.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\100_???.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\10_???.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\200_???.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\20_???.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\500_???.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\50_???.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\5_???.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\?om_logo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="about\About.txt">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\back_arrow.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\back_icon.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\card_logo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\charity_logo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\dollar.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\game_logo2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\logo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\mob-logo.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\phone_logo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="resources.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtRcc Include="resources1.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="icons\steam_logo.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\vodokanal_logo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
