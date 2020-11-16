@@ -38,17 +38,6 @@ public:
 		return;
 	};
 
-	void checkSQLError(const int rc, char* zErrMsg) {
-		if (rc != SQLITE_OK && rc != SQLITE_DONE) {
-			std::cout << rc << std::endl;
-			fprintf(stderr, "SQL error: %s\n", zErrMsg);
-			sqlite3_free(zErrMsg);
-		}
-		else {
-			fprintf(stdout, "Operation completed successfully\n");
-		}
-	}
-
 	PrivateAccount getById(const __int64& id) {
 		char* zErrMsg = 0;
 		int rc = 0;
@@ -64,6 +53,8 @@ public:
 
 		rc = sqlite3_reset(stmt);
 		rc = sqlite3_finalize(stmt);
+
+		checkSQLError(rc, zErrMsg);
 
 		return data.empty() ? PrivateAccount() : data.front();
 	};
