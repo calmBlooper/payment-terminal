@@ -14,44 +14,17 @@ private:
 	sqlite3* connection;
 	const char* dir;
 
-    DBConnector(const char* path) : connection(nullptr), dir(path)
-    {
+	DBConnector(const char* path) : connection(nullptr), dir(path)
+	{
 		init();
 		return;
-    }
-	
+	}
+
 	~DBConnector() {
 		if (connection) {
 			closeConnection();
 		}
 		return;
-	}
-
-	void checkSQLError(const int rc, char* zErrMsg) {
-		if (rc != SQLITE_OK) {
-			fprintf(stderr, "Table not created. SQL error: %s\n", zErrMsg);
-			sqlite3_free(zErrMsg);
-		}
-		else {
-			fprintf(stdout, "Table created successfully\n");
-		}
-	}
-
-	void createTables() {
-		char* zErrMsg = 0;
-		int rc = 0;
-		rc = sqlite3_exec(connection, PrivateAccountTable::CREATE_TABLE.c_str(), 0, 0, &zErrMsg);
-		checkSQLError(rc, zErrMsg);
-		rc = sqlite3_exec(connection, PublicAccountTable::CREATE_TABLE.c_str(), 0, 0, &zErrMsg);
-		checkSQLError(rc, zErrMsg);
-		rc = sqlite3_exec(connection, MobileAccountTable::CREATE_TABLE.c_str(), 0, 0, &zErrMsg);
-		checkSQLError(rc, zErrMsg);
-		rc = sqlite3_exec(connection, EWalletAccountTable::CREATE_TABLE.c_str(), 0, 0, &zErrMsg);
-		checkSQLError(rc, zErrMsg);
-		rc = sqlite3_exec(connection, PaycardTable::CREATE_TABLE.c_str(), 0, 0, &zErrMsg);
-		checkSQLError(rc, zErrMsg);
-		rc = sqlite3_exec(connection, ServiceTable::CREATE_TABLE.c_str(), 0, 0, &zErrMsg);
-		checkSQLError(rc, zErrMsg);
 	}
 
 	void init() {
@@ -60,21 +33,20 @@ private:
 		}
 		else {
 			fprintf(stdout, "Opened database successfully\n");
-			createTables();
 		}
 	}
 
 public:
-    DBConnector(DBConnector& other) = delete;
-    void operator=(const DBConnector&) = delete;
-	
+	DBConnector(DBConnector& other) = delete;
+	void operator=(const DBConnector&) = delete;
+
 	static DBConnector* InitConnection(const char* path);
-    static DBConnector* GetInstance();
+	static DBConnector* GetInstance();
 
 
-    sqlite3*  getConnection() const {
-        return connection;
-    }
+	sqlite3* getConnection() const {
+		return connection;
+	}
 
 	void closeConnection() const {
 		if (sqlite3_close(connection)) {
@@ -105,8 +77,8 @@ DBConnector* DBConnector::InitConnection(const char* path)
 
 DBConnector* DBConnector::GetInstance()
 {
-    if (connector == nullptr) {
+	if (connector == nullptr) {
 		DBConnector::InitConnection("test.db");
-    }
-    return connector;
+	}
+	return connector;
 }

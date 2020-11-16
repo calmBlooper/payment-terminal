@@ -1,7 +1,5 @@
 #pragma once
 
-#pragma once
-
 #include "EWalletAccount.h"
 #include "Repository.h"
 
@@ -39,27 +37,6 @@ public:
 	~EWalletAccountRepository() {
 		return;
 	};
-
-	void checkSQLError(const int rc, char* zErrMsg) {
-		if (rc != SQLITE_OK && rc != SQLITE_DONE) {
-			std::cout << rc << std::endl;
-			fprintf(stderr, "SQL error: %s\n", zErrMsg);
-			sqlite3_free(zErrMsg);
-		}
-		else {
-			fprintf(stdout, "Operation completed successfully\n");
-		}
-	}
-
-	void checkSQLError(const int rc, const char* zErrMsg) {
-		if (rc != SQLITE_OK && rc != SQLITE_DONE) {
-			std::cout << rc << std::endl;
-			fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		}
-		else {
-			fprintf(stdout, "Operation completed successfully\n");
-		}
-	}
 
 	virtual EWalletAccount getByKey(const std::pair<std::string, std::string>& loginEmail) {
 		char* zErrMsg = 0;

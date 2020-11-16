@@ -20,8 +20,8 @@ public:
 	};
 
 	Account(const __int64& id,
-		    const std::string& currency = Currency::UAH,
-		    const double& balance = 0.0)
+		const std::string& currency = Currency::UAH,
+		const double& balance = 0.0)
 		: id(id),
 		currency(currency),
 		balance(balance)
@@ -39,25 +39,11 @@ public:
 
 	void replenish(const double& amount, const char* from)
 	{
-		if (currency != from) {
-			auto conv = convert(amount, from, currency.c_str());
-			balance += conv.first;
-		}
-		else
-		{
-			balance += amount;
-		}
+		balance += amount;
 	};
 	void dismount(const double& amount, const char* from)
 	{
-		if (currency != from) {
-			auto conv = convert(amount, from, currency.c_str());
-			balance = balance >= conv.first ? balance - conv.first : 0.0;
-		}
-		else
-		{
-			balance = balance >= amount ? balance - amount : 0.0;
-		}
+		balance = balance >= amount ? balance - amount : 0.0;
 	};
-	
+
 };

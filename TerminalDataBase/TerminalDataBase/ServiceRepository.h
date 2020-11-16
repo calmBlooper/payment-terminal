@@ -14,12 +14,6 @@ class ServiceRepository : public Repository<Service, std::string> {
 private:
 	sqlite3_stmt* stmt = 0;
 	std::vector<Service> data;
-	/*
-	const __int64 id;
-	const __int32 serviceType;
-	const std::string name;
-	const double commission;
-	*/
 
 	void retrieveData() {
 		data.clear();
@@ -44,17 +38,6 @@ public:
 	~ServiceRepository() {
 		return;
 	};
-
-	void checkSQLError(const int rc, char* zErrMsg) {
-		if (rc != SQLITE_OK && rc != SQLITE_DONE) {
-			std::cout << rc << std::endl;
-			fprintf(stderr, "SQL error: %s\n", zErrMsg);
-			sqlite3_free(zErrMsg);
-		}
-		else {
-			fprintf(stdout, "Operation completed successfully\n");
-		}
-	}
 
 	virtual Service getByKey(const std::string& name) {
 		char* zErrMsg = 0;
@@ -104,7 +87,7 @@ public:
 		rc = sqlite3_bind_text(stmt, 1, entity.getName().c_str(), entity.getName().length(), SQLITE_STATIC);
 		rc = sqlite3_bind_double(stmt, 2, entity.getCommission());
 		rc = sqlite3_bind_int(stmt, 3, entity.getServiceType());
-		
+
 		rc = sqlite3_step(stmt);
 		rc = sqlite3_reset(stmt);
 		rc = sqlite3_exec(DB_connection, "END TRANSACTION", 0, 0, &zErrMsg);
