@@ -121,13 +121,13 @@ private:
 	}
 public:
 
-	ServiceManager(): recipientMobileAccount(nullptr),
-	recipientEWalletAccount(nullptr),
-	recipientPaycard(nullptr),
-	recipientPublicAccount(nullptr),
-	currentService(nullptr),
-	currentServiceType(nullptr),
-	currentSenderPaycard(nullptr) {
+	ServiceManager() : recipientMobileAccount(nullptr),
+		recipientEWalletAccount(nullptr),
+		recipientPaycard(nullptr),
+		recipientPublicAccount(nullptr),
+		currentService(nullptr),
+		currentServiceType(nullptr),
+		currentSenderPaycard(nullptr) {
 
 		//TODO: upload data to database, or nothing if database is already filled
 		return;
@@ -184,8 +184,13 @@ public:
 		delete currentService;
 		delete currentServiceType;
 		delete currentSenderPaycard;
-
-
+		recipientMobileAccount = nullptr;
+		recipientEWalletAccount = nullptr;
+		recipientPaycard = nullptr;
+		recipientPublicAccount = nullptr;
+		currentService = nullptr;
+		currentServiceType = nullptr;
+		currentSenderPaycard = nullptr;
 	}
 
 	const std::vector <Service> loadServicesByType(const std::string& serviceType) {
@@ -290,12 +295,12 @@ public:
 			"Термінал: 8662957\n" +
 			"Код операції: " + generateTransactionCode() + "\n" +
 			"Адреса: вулиця Марини Цвєтаєвої, 14Б\n" +
-			"==================================================\n"+
+			"==================================================\n" +
 			"Одержано: " + doubleToSTDString(amount) + " грн" + "\n" +
 			"Зараховано отримувачу: " + doubleToSTDString(realTransferredAmount(amount)) + " грн" + "\n" +
 			"Комісія: " + doubleToSTDString(amount - realTransferredAmount(amount)) + " грн " + "\n" +
-			"Дата: " + currentTime() + "\n"+
-			"==================================================\n" ;
+			"Дата: " + currentTime() + "\n" +
+			"==================================================\n";
 		if (recipientMobileAccount != nullptr) result += "Номер телефону: " + recipientMobileAccount->getNumber() + "\n" +
 			"Призначення платежу: оплата послуг мобільного зв'язку" + "\n";
 		else if (recipientEWalletAccount != nullptr) result += "Ідентифікатор: " + recipientEWalletAccount->getLogin() + "\n" +
