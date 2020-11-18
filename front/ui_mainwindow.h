@@ -2033,7 +2033,7 @@ public:
         QObject::connect(game_folder_label, SIGNAL(clicked()), game_folder_button, SLOT(click()));
         QObject::connect(charity_folder_label, SIGNAL(clicked()), charity_folder_button, SLOT(click()));
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

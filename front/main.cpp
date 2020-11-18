@@ -121,7 +121,7 @@ int main(int argc, char* argv[])
 
 	auto kkk = db.getPaycardRep().getAll();
 	for (auto x : kkk) std::cout << x << std::endl;
-  QApplication a(argc, argv);
+    QApplication a(argc, argv);
 
     MainWindow w;
     w.setWindowIcon(QIcon(":/icons/logo.png"));
