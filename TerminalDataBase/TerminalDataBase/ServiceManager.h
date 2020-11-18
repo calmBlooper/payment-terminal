@@ -121,14 +121,26 @@ private:
 	}
 public:
 
-	ServiceManager() {
-		resetAllCurrentInfo();
+	ServiceManager(): recipientMobileAccount(nullptr),
+	recipientEWalletAccount(nullptr),
+	recipientPaycard(nullptr),
+	recipientPublicAccount(nullptr),
+	currentService(nullptr),
+	currentServiceType(nullptr),
+	currentSenderPaycard(nullptr) {
+
 		//TODO: upload data to database, or nothing if database is already filled
 		return;
 	}
 
 	~ServiceManager() {
-		resetAllCurrentInfo();
+		delete recipientMobileAccount;
+		delete recipientEWalletAccount;
+		delete recipientPaycard;
+		delete recipientPublicAccount;
+		delete currentService;
+		delete currentServiceType;
+		delete currentSenderPaycard;
 		return;
 	}
 
@@ -140,6 +152,7 @@ public:
 	}
 
 	void setCurrentService(const std::string& serviceName) {
+		delete currentService;
 		currentService = new Service(database.getServiceRep().getByKey(serviceName));
 	}
 
@@ -148,6 +161,7 @@ public:
 	}
 
 	void setCurrentServiceType(const ServiceType& type) {
+		delete currentServiceType;
 		currentServiceType = new ServiceType(type);
 	}
 
@@ -162,14 +176,16 @@ public:
 	}
 	*/
 	//Resets current account, service type and service itself. Useful expecially at the end of session
-	void resetAllCurrentInfo() {
-		recipientMobileAccount = nullptr;
-		recipientEWalletAccount = nullptr;
-		recipientPaycard = nullptr;
-		recipientPublicAccount = nullptr;
-		currentService = nullptr;
-		currentServiceType = nullptr;
-		currentSenderPaycard = nullptr;
+	void endSession() {
+		delete recipientMobileAccount;
+		delete recipientEWalletAccount;
+		delete recipientPaycard;
+		delete recipientPublicAccount;
+		delete currentService;
+		delete currentServiceType;
+		delete currentSenderPaycard;
+
+
 	}
 
 	const std::vector <Service> loadServicesByType(const std::string& serviceType) {
@@ -184,6 +200,7 @@ public:
 
 	//Used with both ewallets and games
 	void setRecipientEWalletAccount(const std::string& credentials) {
+		delete recipientEWalletAccount;
 		EWalletAccount* result = new EWalletAccount(database.getEWalletRepAcc().getByLogin(credentials));
 		if (result->getId() == 0)  result = new EWalletAccount(database.getEWalletRepAcc().getByEmail(credentials));
 		if (result->getId() == 0) throw CredentialsError("Будь ласка, перевірте ваші реквізити. Вони некоректні.");
@@ -191,6 +208,7 @@ public:
 		delete result;
 	};
 	void setRecipientPublicAccount(const std::string& name) {
+		delete recipientPublicAccount;
 		PublicAccount result = database.getPublicRepAcc().getByKey(name);
 		if (result.getId() == 0) throw CredentialsError("Будь ласка, перевірте ваші реквізити. Вони некоректні.");
 	}
@@ -202,6 +220,7 @@ public:
 	void setSenderPaycard(const std::string& cardNumber, const __int32& cvv,
 		const __int32& expMonth,
 		const __int32& expYear) {
+		delete currentSenderPaycard;
 		Paycard result = database.getPaycardRep().getByKey(cardNumber);
 		if (result.getId() == 0) throw CredentialsError("Невірно вказаний номер картки.");
 		if (result.getExpMonth() != expMonth || result.getExpYear() != expYear || result.getCvv() != cvv) throw  CredentialsError("Будь ласка, перевірте ваші реквізити. Вони некоректні.");
@@ -209,12 +228,14 @@ public:
 	};
 
 	void setRecipientPaycard(const std::string& cardNumber) {
+		delete  recipientPaycard;
 		Paycard result = database.getPaycardRep().getByKey(cardNumber);
 		if (result.getId() == 0) throw CredentialsError("Невірно вказаний номер картки.");
 		recipientPaycard = new Paycard(result);
 	}
 
 	void setRecipientMobileAccount(const std::string& number) {
+		delete recipientMobileAccount;
 		MobileAccount result = database.getMobileRepAcc().getByKey(number);
 		if (result.getId() == 0) throw CredentialsError("Будь ласка, перевірте ваші реквізити. Вони некоректні.");
 		recipientMobileAccount = new MobileAccount(result);
