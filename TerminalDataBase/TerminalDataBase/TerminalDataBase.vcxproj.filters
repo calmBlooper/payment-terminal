@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\model">
+      <UniqueIdentifier>{aed650b9-5324-4a21-9159-63e5b2ff474d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\database">
+      <UniqueIdentifier>{bf863bb5-e56d-4081-8dc4-cb31ab6e3fde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\database\tables">
+      <UniqueIdentifier>{dbaf6b9e-18cf-4923-bee2-5e4b3542204e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\db">
+      <UniqueIdentifier>{bf0e6756-89b8-4372-8608-14f59962c202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\utility">
+      <UniqueIdentifier>{55df082b-1884-4182-b3db-68876a04a890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\database\repository">
+      <UniqueIdentifier>{098d0744-8645-45ee-8638-dc420f51ba9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\controller">
+      <UniqueIdentifier>{177dffa2-48ce-4342-bb88-915bc147de2c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DBMain.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Downloads\sqlite-amalgamation-3330000\sqlite3.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Account.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="Service.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="MobileAccount.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicAccount.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="PrivateAccount.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="EWalletAccount.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="Paycard.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountTable.h">
+      <Filter>Файлы заголовков\database\tables</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceTable.h">
+      <Filter>Файлы заголовков\database\tables</Filter>
+    </ClInclude>
+    <ClInclude Include="PaycardTable.h">
+      <Filter>Файлы заголовков\database\tables</Filter>
+    </ClInclude>
+    <ClInclude Include="DBConnector.h">
+      <Filter>Файлы заголовков\database</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrencyConverter.h">
+      <Filter>Файлы заголовков\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="Identifiable.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="PrivateAccountRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicAccountRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="EWalletAccountRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="MobileAccountRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="DBManager.h">
+      <Filter>Файлы заголовков\database</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="PaycardRepository.h">
+      <Filter>Файлы заголовков\database\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceManager.h">
+      <Filter>Файлы заголовков\controller</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
