@@ -24,7 +24,7 @@ public:
 		return;
 	};
 
-	PrivateAccount(const __int64& id,
+	PrivateAccount(const long long& id,
 		           const std::string& currency,
 		           const double& initialBalance,
 		           const std::string& name,
@@ -45,6 +45,4 @@ public:
 
 };
 
-std::ostream& operator<<(std::ostream& out, const PrivateAccount& pa) {
-	return out << "id-" << pa.getId() << ":" << pa.getBalance() << pa.getCurrency() << ',' << pa.getName() << " " << pa.getSurename() << std::endl;
-}
+std::ostream& operator<<(std::ostream&, const PrivateAccount&);

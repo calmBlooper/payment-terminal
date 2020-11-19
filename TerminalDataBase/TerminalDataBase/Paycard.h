@@ -1,18 +1,19 @@
 #pragma once
 
+#include <iostream>
 #include <string>
 
 #include "Identifiable.h"
 
 class Paycard : public Identifiable {
 private:
-	const __int64 id;
-	const __int64 accountId;
+	const long long id;
+	const long long accountId;
 	const std::string cardNumber;
-	const __int32 cvv;
-	const __int32 expMonth;
-	const __int32 expYear;
-	__int32 pin;
+	const int cvv;
+	const int expMonth;
+	const int expYear;
+	int pin;
 
 public:
 	Paycard()
@@ -27,12 +28,12 @@ public:
 		return;
 	}
 
-	Paycard(const __int64& accountId,
+	Paycard(const long long& accountId,
 		    const std::string& cardNumber,
-		    const __int32& cvv,
-		    const __int32& expMonth,
-		    const __int32& expYear,
-		    const __int32& pin = 0)
+		    const int& cvv,
+		    const int& expMonth,
+		    const int& expYear,
+		    const int& pin = 0)
         : id(0),
 		  accountId(accountId),
 		  cardNumber(cardNumber),
@@ -44,13 +45,13 @@ public:
 		return;
 	}
 
-	Paycard(const __int64& id,
-		    const __int64& accountId,
+	Paycard(const long long& id,
+		    const long long& accountId,
 		    const std::string& cardNumber,
-		    const __int32& cvv,
-		    const __int32& expMonth,
-		    const __int32& expYear,
-		    const __int32& pin)
+		    const int& cvv,
+		    const int& expMonth,
+		    const int& expYear,
+		    const int& pin)
 		: id(id),
 		  accountId(accountId),
 		  cardNumber(cardNumber),
@@ -66,15 +67,15 @@ public:
 		return;
 	};
 
-	virtual const __int64& getId() const { return id; };
-	const __int64& getAccountId() const { return accountId; };
+	virtual const long long& getId() const { return id; };
+	const long long& getAccountId() const { return accountId; };
 	const std::string& getCardNumber() const { return cardNumber; };
-	const __int32& getPin() const { return pin; };
-	const __int32& getCvv() const { return cvv; };
-	const __int32& getExpMonth() const { return expMonth; };
-	const __int32& getExpYear() const { return expYear; };
+	const int& getPin() const { return pin; };
+	const int& getCvv() const { return cvv; };
+	const int& getExpMonth() const { return expMonth; };
+	const int& getExpYear() const { return expYear; };
 
-	void setPin(const __int32& newPin)
+	void setPin(const int& newPin)
 	{ 
 		pin = (newPin >= 0 && newPin <= 9999) ? newPin : pin;
 		return; 
@@ -82,6 +83,4 @@ public:
 
 };
 
-std::ostream& operator<<(std::ostream& out, const Paycard& p) {
-	return out << "id-" << p.getId() << ":" << p.getAccountId() << '|' << p.getCardNumber() << '|' << p.getCvv() << '|' << p.getExpMonth() << '|' << p.getExpYear() << "|" << p.getPin() << "|" << std::endl;
-}
+std::ostream& operator<<(std::ostream&, const Paycard&);

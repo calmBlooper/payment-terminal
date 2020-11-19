@@ -22,7 +22,7 @@ int main(void)
 
 	auto vn = db.getPrivateRepAcc().getByKey({ "Vadym", "Nakytniak"});
 	std::cout << vn << std::endl;
-	vn.replenish(888,Currency::UAH);
+	vn.replenish(888,"UAH");
 	db.getPrivateRepAcc().update(vn);
 
 	std::cout << "By id:";
@@ -30,7 +30,7 @@ int main(void)
 	auto vnid = db.getPrivateRepAcc().getById(vn.getId());
 	std::cout << vnid << std::endl;
 
-	PrivateAccount wrong(-100,Currency::UAH, 100.0, "d", "d");
+	PrivateAccount wrong(-100,"UAH", 100.0, "d", "d");
 	db.getPrivateRepAcc().update(wrong);
 	db.getPrivateRepAcc().remove(wrong);
 	

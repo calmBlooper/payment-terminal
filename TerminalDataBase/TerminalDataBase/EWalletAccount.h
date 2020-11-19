@@ -24,7 +24,7 @@ public:
 		return;
 	};
 
-	EWalletAccount(const __int64& id,
+	EWalletAccount(const long long& id,
 		           const std::string& currency,
 		           const double& initialBalance,
 		           const std::string& login,
@@ -45,6 +45,4 @@ public:
 
 };
 
-std::ostream& operator<<(std::ostream& out, const EWalletAccount& ewa) {
-	return out << "id-" << ewa.getId() << ":" << ewa.getBalance() << ewa.getCurrency() << ',' << ewa.getLogin() << ',' << ewa.getEmail() << std::endl;
-}
+std::ostream& operator<<(std::ostream&, const EWalletAccount&);

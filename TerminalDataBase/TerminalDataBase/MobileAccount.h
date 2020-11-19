@@ -21,7 +21,7 @@ public:
 		return;
 	};
 
-	MobileAccount(const __int64& id,
+	MobileAccount(const long long& id,
 		          const std::string& currency,
 		          const double& initialBalance,
 		          const std::string& number)
@@ -38,6 +38,4 @@ public:
 	const std::string& getNumber() const { return telephoneNumber; };
 };
 
-std::ostream& operator<<(std::ostream& out, const MobileAccount& pa) {
-	return out << "id-" << pa.getId() << ":" << pa.getBalance() << pa.getCurrency() << ',' << pa.getNumber() << std::endl;
-}
+std::ostream& operator<<(std::ostream&, const MobileAccount&);

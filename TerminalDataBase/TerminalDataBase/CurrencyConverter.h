@@ -1,5 +1,3 @@
-#include <utility>
-
 #ifndef CURRENCY
 namespace Currency {
 	const char* UAH = "UAH";

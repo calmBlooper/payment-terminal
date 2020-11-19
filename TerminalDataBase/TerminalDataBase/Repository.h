@@ -1,8 +1,14 @@
 #pragma once
 
-#include<vector>
+#include <vector>
+#include <string>
+#include <utility>
+#include <assert.h>
+#include <iostream>
+#include <sqlite3.h>
 
 #include "Identifiable.h"
+#include "DBConnector.h"
 
 template <class T, class K>
 class Repository

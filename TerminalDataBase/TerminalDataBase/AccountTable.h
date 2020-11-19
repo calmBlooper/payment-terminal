@@ -3,7 +3,7 @@
 #ifndef ACCOUNT_TABLE
 namespace AccountTable {
 	/*
-	    const __int64 id;
+	    const long long id;
         const std::string currency;
         double balance;
 	*/

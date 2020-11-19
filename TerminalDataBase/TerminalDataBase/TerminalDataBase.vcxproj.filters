@@ -22,14 +22,17 @@
     <Filter Include="Файлы заголовков\database\tables">
       <UniqueIdentifier>{dbaf6b9e-18cf-4923-bee2-5e4b3542204e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы ресурсов\db">
-      <UniqueIdentifier>{bf0e6756-89b8-4372-8608-14f59962c202}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\utility">
-      <UniqueIdentifier>{55df082b-1884-4182-b3db-68876a04a890}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\database\repository">
       <UniqueIdentifier>{098d0744-8645-45ee-8638-dc420f51ba9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\database">
+      <UniqueIdentifier>{5d284e99-d3a3-482f-8aa4-d121a3cf790f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\database\repository">
+      <UniqueIdentifier>{fac0ec20-38c8-4724-a09a-4d57d7b799dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\model">
+      <UniqueIdentifier>{7af20d07-a811-4cee-bfde-198d7e5d4f9c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +47,48 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\Desktop\sqlite-amalgamation-3330000\sqlite3.c">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="DBConnector.cpp">
+      <Filter>Файлы ресурсов\database</Filter>
+    </ClCompile>
+    <ClCompile Include="DBManager.cpp">
+      <Filter>Файлы ресурсов\database</Filter>
+    </ClCompile>
+    <ClCompile Include="EWalletAccountRepository.cpp">
+      <Filter>Файлы ресурсов\database\repository</Filter>
+    </ClCompile>
+    <ClCompile Include="MobileAccountRepository.cpp">
+      <Filter>Файлы ресурсов\database\repository</Filter>
+    </ClCompile>
+    <ClCompile Include="PrivateAccountRepository.cpp">
+      <Filter>Файлы ресурсов\database\repository</Filter>
+    </ClCompile>
+    <ClCompile Include="PublicAccountRepository.cpp">
+      <Filter>Файлы ресурсов\database\repository</Filter>
+    </ClCompile>
+    <ClCompile Include="PaycardRepository.cpp">
+      <Filter>Файлы ресурсов\database\repository</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceRepository.cpp">
+      <Filter>Файлы ресурсов\database\repository</Filter>
+    </ClCompile>
+    <ClCompile Include="EWalletAccount.cpp">
+      <Filter>Файлы ресурсов\model</Filter>
+    </ClCompile>
+    <ClCompile Include="MobileAccount.cpp">
+      <Filter>Файлы ресурсов\model</Filter>
+    </ClCompile>
+    <ClCompile Include="Paycard.cpp">
+      <Filter>Файлы ресурсов\model</Filter>
+    </ClCompile>
+    <ClCompile Include="PrivateAccount.cpp">
+      <Filter>Файлы ресурсов\model</Filter>
+    </ClCompile>
+    <ClCompile Include="PublicAccount.cpp">
+      <Filter>Файлы ресурсов\model</Filter>
+    </ClCompile>
+    <ClCompile Include="Service.cpp">
+      <Filter>Файлы ресурсов\model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,9 +130,6 @@
     </ClInclude>
     <ClInclude Include="DBConnector.h">
       <Filter>Файлы заголовков\database</Filter>
-    </ClInclude>
-    <ClInclude Include="CurrencyConverter.h">
-      <Filter>Файлы заголовков\utility</Filter>
     </ClInclude>
     <ClInclude Include="Repository.h">
       <Filter>Файлы заголовков\database\repository</Filter>
