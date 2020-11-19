@@ -108,6 +108,7 @@
 		delete currentService;
 		delete currentServiceType;
 		delete currentSenderPaycard;
+		delete database;
 		return;
 	}
 
