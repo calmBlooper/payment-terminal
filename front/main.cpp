@@ -21,10 +21,10 @@ int main(int argc, char* argv[])
 
 	std::cout << "Private:" << std::endl;
 
-	PrivateAccount pa1(Currency::UAH, 100.0, "Vadym", "Nakytniak");
-	PrivateAccount pa2(Currency::EUR, 999000.0, "Trokhym", "Babych");
-	PrivateAccount pa3(Currency::UAH, 1000.0, "Alex", "Sad");
-	PrivateAccount pa4(Currency::USD, 100000.0, "megakiller2005", "");
+	PrivateAccount pa1(Currency::UAH(), 100.0, "Vadym", "Nakytniak");
+	PrivateAccount pa2(Currency::EUR(), 999000.0, "Trokhym", "Babych");
+	PrivateAccount pa3(Currency::UAH(), 1000.0, "Alex", "Sad");
+	PrivateAccount pa4(Currency::USD(), 100000.0, "megakiller2005", "");
 	db.getPrivateRepAcc().insert(pa1);
 	db.getPrivateRepAcc().insert(pa2);
 	db.getPrivateRepAcc().insert(pa3);
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 
 	auto vn = db.getPrivateRepAcc().getByKey({ "Vadym", "Nakytniak" });
 	std::cout << vn << std::endl;
-	vn.replenish(888, Currency::UAH);
+	vn.replenish(888, Currency::UAH());
 	db.getPrivateRepAcc().update(vn);
 
 	std::cout << "By id:";
@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
 	auto vnid = db.getPrivateRepAcc().getById(vn.getId());
 	std::cout << vnid << std::endl;
 
-	PrivateAccount wrong(-100, Currency::UAH, 100.0, "d", "d");
+	PrivateAccount wrong(-100, Currency::UAH(), 100.0, "d", "d");
 	db.getPrivateRepAcc().update(wrong);
 	db.getPrivateRepAcc().remove(wrong);
 
@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
 
 	std::cout << "Public:" << std::endl;
 
-	PublicAccount pubAcc(Currency::USD, 100.0, "Apple.inc", "Silicon valley");
+	PublicAccount pubAcc(Currency::USD(), 100.0, "Apple.inc", "Silicon valley");
 	db.getPublicRepAcc().insert(pubAcc);
 
 	auto a1 = db.getPublicRepAcc().getByKey("Apple.inc");
@@ -66,14 +66,14 @@ int main(int argc, char* argv[])
 
 	std::cout << "Mobile:" << std::endl;
 
-	MobileAccount mobAcc(Currency::UAH, 100.0, "380-060-37-890");
+	MobileAccount mobAcc(Currency::UAH(), 100.0, "380-060-37-890");
 	db.getMobileRepAcc().insert(mobAcc);
 	auto a2 = db.getMobileRepAcc().getByKey("380-060-37-890");
 	std::cout << a2 << std::endl;
 
 	std::cout << "EWallet:" << std::endl;
 
-	EWalletAccount ewallAcc(Currency::UAH, 100.0, "megakiller", "mgkkllr@ukma.edu.ua");
+	EWalletAccount ewallAcc(Currency::UAH(), 100.0, "megakiller", "mgkkllr@ukma.edu.ua");
 	db.getEWalletRepAcc().insert(ewallAcc);
 
 	auto byLogin = db.getEWalletRepAcc().getByLogin("megakiller");

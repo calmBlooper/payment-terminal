@@ -119,6 +119,7 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *goto_transfer_details;
     QPushButton *cancel_button_16;
+    QLabel *rec_err_lab;
     QWidget *sum_of_transfer;
     QLabel *beznalCommisionLabel;
     QLabel *digipay_label_3;
@@ -203,7 +204,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 730);
+        MainWindow->resize(809, 740);
         MainWindow->setStyleSheet(QString::fromUtf8("background-color: #706993;"));
         stackedWidget = new QStackedWidget(MainWindow);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
@@ -1252,6 +1253,10 @@ public:
 
         horizontalLayout_2->addWidget(cancel_button_16);
 
+        rec_err_lab = new QLabel(card_info);
+        rec_err_lab->setObjectName(QString::fromUtf8("rec_err_lab"));
+        rec_err_lab->setGeometry(QRect(170, 610, 451, 71));
+        rec_err_lab->setFont(font5);
         stackedWidget->addWidget(card_info);
         sum_of_transfer = new QWidget();
         sum_of_transfer->setObjectName(QString::fromUtf8("sum_of_transfer"));
@@ -2033,7 +2038,7 @@ public:
         QObject::connect(game_folder_label, SIGNAL(clicked()), game_folder_button, SLOT(click()));
         QObject::connect(charity_folder_label, SIGNAL(clicked()), charity_folder_button, SLOT(click()));
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -2149,6 +2154,7 @@ public:
         f3->setText(QString());
         goto_transfer_details->setText(QCoreApplication::translate("MainWindow", "\320\224\320\260\320\273\321\226", nullptr));
         cancel_button_16->setText(QCoreApplication::translate("MainWindow", "\320\237\320\276\320\262\320\265\321\200\320\275\321\203\321\202\320\270\321\201\321\214 ", nullptr));
+        rec_err_lab->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; color:#c70815;\">\320\222\320\262\320\265\320\264\320\265\320\275\321\226 \321\200\320\265\320\272\320\262\321\226\320\267\320\270\321\202\320\270 \320\275\320\265 \320\262\321\226\321\200\320\275\321\226</span></p></body></html>", nullptr));
         beznalCommisionLabel->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; color:#ffffff;\">\320\232\320\276\320\274\321\226\321\201\321\226\321\217 5% \320\275\320\260 \320\277\320\276\320\277\320\276\320\262\320\275\320\265\320\275\320\275\321\217 \320\274\320\276\320\261\321\226\320\273\321\214\320\275\320\276\320\263\320\276 \321\200\320\260\321\205\321\203\320\275\320\272\321\203. </span></p><p><span style=\" font-size:12pt; color:#ffffff;\">\320\234\320\260\320\272\321\201\320\270\320\274\320\260\320\273\321\214\320\275\320\270\320\271 \321\200\320\276\320\267\320\274\321\226\321\200 \320\272\320\276\320\274\321\226\321\201\321\226\321\227 50 \320\263\321\200\320\275</span></p><p><span style=\" font-size:12pt; color:#ffffff;\">\320\232\320\276\320\274\321\226\321\201\321\226\321\217 3% \320\264\320\273\321\217 \320\277\320\265\321\200\320\265\320\272\320\260\320\267\321\226\320\262.</span></p><p><span style=\" font-size:12pt; color:#ffffff;\">\320\234\320\260\320\272\321\201\320\270\320\274\320\260\320\273\321\214\320\275\320"
                         "\270\320\271 \321\200\320\276\320\267\320\274\321\226\321\200 \320\272\320\276\320\274\321\226\321\201\321\226\321\227 200 \320\263\321\200\320\275 </span></p></body></html>", nullptr));
         digipay_label_3->setText(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

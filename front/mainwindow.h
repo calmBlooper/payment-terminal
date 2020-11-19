@@ -5,10 +5,12 @@
 #include <QListWidget>
 #include <QMainWindow>
 #include "approvepaymentpage.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+class ServiceManager;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -131,9 +133,10 @@ private slots:
     void on_about_back_button_clicked();
 
     void on_cancelTransfer_clicked();
-
+   
 private:
    Ui::MainWindow *ui;
+   ServiceManager* servMan;
    void renderElementsInFolder(QList<QString>&);
    void clearFields();
    void addTextToAccountField(QString str);

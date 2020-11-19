@@ -199,6 +199,8 @@
     </QtUic>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Currency.cpp" />
+    <ClCompile Include="DBConnector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="packages\sqlite3_c_plus_plus.1.0.3\build\native\include\sqlite3.c" />

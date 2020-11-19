@@ -68,10 +68,16 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="packages\sqlite3_c_plus_plus.1.0.3\build\native\include\sqlite3.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
     <ClCompile Include="mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="packages\sqlite3_c_plus_plus.1.0.3\build\native\include\sqlite3.c">
+    <ClCompile Include="DBConnector.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Currency.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -14,13 +14,13 @@ private:
 	double balance;
 
 public:
-	Account() : id(0), currency(Currency::UAH), balance(0.0)
+	Account() : id(0), currency(Currency::UAH()), balance(0.0)
 	{
 		return;
 	};
 
 	Account(const __int64& id,
-		const std::string& currency = Currency::UAH,
+		const std::string& currency = Currency::UAH(),
 		const double& balance = 0.0)
 		: id(id),
 		currency(currency),
