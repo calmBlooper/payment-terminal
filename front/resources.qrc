@@ -18,5 +18,20 @@
         <file>icons/500_грн.jpg</file>
         <file>icons/1000_грн.png</file>
         <file>icons/back_icon.png</file>
+        <file>icons/kiyvstar.png</file>
+        <file>icons/vodafone.png</file>
+        <file>icons/lifecell.png</file>
+        <file>icons/chkh.png</file>
+        <file>icons/gta_card.png</file>
+        <file>icons/jw.png</file>
+        <file>icons/kvod.png</file>
+        <file>icons/paypal.png</file>
+        <file>icons/privatBank.png</file>
+        <file>icons/starWars.png</file>
+        <file>icons/tsifral.png</file>
+        <file>icons/ubb.png</file>
+        <file>icons/warthunder.png</file>
+        <file>icons/webmoney.png</file>
+        <file>icons/steam_icon.png</file>
     </qresource>
 </RCC>

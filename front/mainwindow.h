@@ -4,7 +4,8 @@
 
 #include <QListWidget>
 #include <QMainWindow>
-#include "approvepaymentpage.h"
+#include "ServiceManager.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -14,7 +15,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
 private slots:
@@ -49,7 +50,6 @@ private slots:
     void on_num_0_transfer_clicked();
     void on_cl_one_transfer_clicked();
     void on_cl_all_transfer_clicked();
-    void on_goto_pin_clicked();
     void on_cancel_button_16_clicked();
     void on_uan5_button_clicked();
     void on_uan10_button_clicked();
@@ -76,10 +76,10 @@ private slots:
     void on_cl_one_data_clicked();
     void on_cl_all_data_clicked();
     void on_goto_transfer_details_clicked();
-    void on_card_number_textChanged(const QString &arg1);
-    void on_month_field_textChanged(const QString &arg1);
-    void on_year_field_textChanged(const QString &arg1);
-    void on_cvv2_field_textChanged(const QString &arg1);
+    void on_card_number_textChanged(const QString& arg1);
+    void on_month_field_textChanged(const QString& arg1);
+    void on_year_field_textChanged(const QString& arg1);
+    void on_cvv2_field_textChanged(const QString& arg1);
     void on_confirm_payment_clicked();
     void on_back_to_main_menu_clicked();
     void on_pushButton_2_clicked();
@@ -97,16 +97,17 @@ private slots:
     void on_cl_onePin_clicked();
     void on_cl_allPin_clicked();
     void on_confirmPin_clicked();
-    void on_pin_field_textChanged(const QString &arg1);
+    void on_pin_field_textChanged(const QString& arg1);
     void on_cancelPin_clicked();
-    void on_label_trans_sum_textChanged(const QString &arg1);
-    void on_account_number_textChanged(const QString &arg1);
+    void on_label_trans_sum_textChanged(const QString& arg1);
+    void on_account_number_textChanged(const QString& arg1);
+    void on_address_field_textChanged(const QString& arg1);
     void on_cancel_button_29_clicked();
     void on_card_button_clicked();
     void on_vodokanal_button_clicked();
     void on_mob_folder_button_clicked();
 
-    void on_servlistWidget_itemClicked(QListWidgetItem *item);
+    void on_servlistWidget_itemClicked(QListWidgetItem* item);
 
     void on_backToMainMenu_clicked();
 
@@ -133,14 +134,16 @@ private slots:
     void on_cancelTransfer_clicked();
 
 private:
-   Ui::MainWindow *ui;
-   void renderElementsInFolder(QList<QString>&);
-   void clearFields();
-   void addTextToAccountField(QString str);
-   void addCash(int uan);
-   void addCardData(QString);
-   void addNumber(QString num);
-   void printCheck( QString acc, QString card ,QString sum);
-   void execService();
+    Ui::MainWindow* ui;
+    ServiceManager* servMan;
+    void clearFields();
+    void addTextToAccountField(QString str);
+    void addCash(int uan);
+    void addCardData(QString);
+    void addNumber(QString num);
+    void printCheck(const double&);
+    void execService();
+    struct FolderService;
+    void renderElementsInFolder(QList<FolderService>&);
 };
 #endif // MAINWINDOW_H

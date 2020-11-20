@@ -32,7 +32,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="main_menu">
     <widget class="QPushButton" name="about_button">
@@ -461,7 +461,7 @@ border-bottom-right-radius: 8px;</string>
      </property>
      <property name="text">
       <string>
-Поповнити мобільний</string>
+Поповнення мобільного</string>
      </property>
     </widget>
     <widget class="QLabel" name="digipay_label">
@@ -847,7 +847,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>410</x>
-       <y>290</y>
+       <y>340</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -873,7 +873,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>480</x>
-       <y>290</y>
+       <y>340</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -899,7 +899,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>620</x>
-       <y>290</y>
+       <y>340</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -925,7 +925,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>410</x>
-       <y>220</y>
+       <y>270</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -951,7 +951,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>550</x>
-       <y>360</y>
+       <y>410</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -977,7 +977,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>620</x>
-       <y>360</y>
+       <y>410</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -1003,7 +1003,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>550</x>
-       <y>220</y>
+       <y>270</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -1029,7 +1029,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>480</x>
-       <y>360</y>
+       <y>410</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -1081,7 +1081,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>620</x>
-       <y>220</y>
+       <y>270</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -1117,8 +1117,8 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>220</y>
-       <width>231</width>
+       <y>260</y>
+       <width>241</width>
        <height>41</height>
       </rect>
      </property>
@@ -1143,7 +1143,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>550</x>
-       <y>290</y>
+       <y>340</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -1169,7 +1169,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>480</x>
-       <y>220</y>
+       <y>270</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -1195,7 +1195,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>160</y>
+       <y>210</y>
        <width>250</width>
        <height>40</height>
       </rect>
@@ -1230,7 +1230,7 @@ outline: 0;</string>
      <property name="geometry">
       <rect>
        <x>410</x>
-       <y>360</y>
+       <y>410</y>
        <width>50</width>
        <height>50</height>
       </rect>
@@ -1255,15 +1255,15 @@ outline: 0;</string>
     <widget class="QLineEdit" name="account_number">
      <property name="geometry">
       <rect>
-       <x>370</x>
-       <y>160</y>
-       <width>301</width>
+       <x>400</x>
+       <y>210</y>
+       <width>351</width>
        <height>41</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>15</pointsize>
+       <pointsize>13</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -1278,7 +1278,7 @@ outline: 0;</string>
       <string/>
      </property>
      <property name="maxLength">
-      <number>20</number>
+      <number>50</number>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1361,6 +1361,124 @@ outline: 0;</string>
       </item>
      </layout>
     </widget>
+    <widget class="QLineEdit" name="address_field">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>160</y>
+       <width>351</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-width: 3px;
+border-radius: 10px;
+border-color:  #331E38;
+border-style:solid;
+outline: 0;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>50</number>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_address">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>160</y>
+       <width>250</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #F4E8C1;
+border-radius: 10px;
+border-width: 3px;
+border-color:  #331E38;
+border-style:solid;
+outline: 0;</string>
+     </property>
+     <property name="text">
+      <string>Введіть адресу:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="com_err_lab">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>610</y>
+       <width>551</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #331E38;
+border-radius: 10px;
+border-width: 3px;
+border-color:  #d30000;
+border-style:solid;
+outline: 0;
+</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; color:#d30000;&quot;&gt;Невірний номер карти&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <zorder>address_field</zorder>
+    <zorder>num_4_account</zorder>
+    <zorder>num_5_account</zorder>
+    <zorder>cl_all_account</zorder>
+    <zorder>num_1_account</zorder>
+    <zorder>num_9_account</zorder>
+    <zorder>num_0_account</zorder>
+    <zorder>num_3_account</zorder>
+    <zorder>num_8_account</zorder>
+    <zorder>digipay_label_10</zorder>
+    <zorder>cl_one_account</zorder>
+    <zorder>is_transfer_beznal</zorder>
+    <zorder>num_6_account</zorder>
+    <zorder>num_2_account</zorder>
+    <zorder>label_account_9</zorder>
+    <zorder>num_7_account</zorder>
+    <zorder>account_number</zorder>
+    <zorder>horizontalLayoutWidget</zorder>
+    <zorder>label_address</zorder>
+    <zorder>com_err_lab</zorder>
    </widget>
    <widget class="QWidget" name="enter_cash">
     <widget class="QPushButton" name="uan1000_button">
@@ -1374,6 +1492,9 @@ outline: 0;</string>
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">outline: 0;</string>
      </property>
      <property name="text">
       <string/>
@@ -1400,6 +1521,9 @@ outline: 0;</string>
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">outline: 0;</string>
      </property>
      <property name="text">
       <string/>
@@ -1514,6 +1638,9 @@ outline: 0;</string>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
+     <property name="styleSheet">
+      <string notr="true">outline: 0;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -1554,7 +1681,7 @@ outline: 0;</string>
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">outline: 0;</string>
      </property>
      <property name="text">
       <string/>
@@ -1611,6 +1738,9 @@ outline: 0;</string>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
+     <property name="styleSheet">
+      <string notr="true">outline: 0;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -1636,6 +1766,9 @@ outline: 0;</string>
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">outline: 0;</string>
      </property>
      <property name="text">
       <string/>
@@ -1688,6 +1821,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">outline: 0;</string>
      </property>
      <property name="text">
       <string/>
@@ -1743,6 +1879,9 @@ outline: 0;</string>
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">outline: 0;</string>
      </property>
      <property name="text">
       <string/>
@@ -2593,6 +2732,31 @@ outline: 0;</string>
       </item>
      </layout>
     </widget>
+    <widget class="QLabel" name="card_err_lab">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>630</y>
+       <width>551</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #331E38;
+border-radius: 10px;
+border-width: 3px;
+border-color:  #d30000;
+border-style:solid;
+outline: 0;
+</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; color:#d30000;&quot;&gt;Невірний номер карти&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="sum_of_transfer">
     <widget class="QLabel" name="beznalCommisionLabel">
@@ -3065,242 +3229,13 @@ outline: 0;</string>
     <widget class="QWidget" name="horizontalLayoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>490</y>
-       <width>451</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <widget class="QPushButton" name="goto_pin">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>15</pointsize>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: #331E38;
-border-radius: 10px;
-border-width: 3px;
-border-color:  #ffffff;
-border-style:solid;
-outline: 0;
-color: white;</string>
-        </property>
-        <property name="text">
-         <string>Далі</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="cancel_sum_button">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>15</pointsize>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-        </property>
-        <property name="text">
-         <string>Повернутись</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="confirm_transfer">
-    <widget class="QLabel" name="digipay_label_15">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>40</y>
-       <width>221</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-style: solid;
-border-width: 3px;
-border-radius: 8px</string>
-     </property>
-     <property name="text">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#d30000;&quot;&gt;digi&lt;/span&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#01b80d;&quot;&gt;Pay&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="title_5">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>200</y>
-       <width>171</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 3px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Дані платежу:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="account_data">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>270</y>
-       <width>471</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 3px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Отримувач:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="card_data">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>320</y>
-       <width>471</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 3px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Номер карти:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="to_pay_sum">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>370</y>
-       <width>471</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 3px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>Сума переказу:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="to_pay_data">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>420</y>
-       <width>471</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 3px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-     </property>
-     <property name="text">
-      <string>До сплати:</string>
-     </property>
-    </widget>
-    <widget class="QWidget" name="horizontalLayoutWidget_4">
-     <property name="geometry">
-      <rect>
        <x>60</x>
        <y>510</y>
        <width>681</width>
        <height>71</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QPushButton" name="confirm_payment">
         <property name="sizePolicy">
@@ -3332,7 +3267,7 @@ color: white;</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="cancel_button_29">
+       <widget class="QPushButton" name="cancel_sum_button">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>0</horstretch>
@@ -3464,42 +3399,13 @@ outline: 0;</string>
     <widget class="QWidget" name="horizontalLayoutWidget_5">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>150</x>
        <y>590</y>
-       <width>621</width>
+       <width>501</width>
        <height>71</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_5">
-      <item>
-       <widget class="QPushButton" name="save_check">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>15</pointsize>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: #F4E8C1;
-border-radius: 10px;
-border-width: 5px;
-border-color:  #331E38;
-border-style:solid;
-outline: 0;</string>
-        </property>
-        <property name="text">
-         <string>Зберегти квитанцію</string>
-        </property>
-       </widget>
-      </item>
       <item>
        <widget class="QPushButton" name="back_to_main_menu">
         <property name="sizePolicy">
@@ -4129,6 +4035,31 @@ outline: 0;</string>
       <string>4</string>
      </property>
     </widget>
+    <widget class="QLabel" name="pin_err_lab">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>590</y>
+       <width>561</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #331E38;
+border-radius: 10px;
+border-width: 3px;
+border-color:  #d30000;
+border-style:solid;
+outline: 0;
+</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; color:#d30000;&quot;&gt;Невірний PIN-код, залишилось спроб: 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="folderOfServices">
     <widget class="QListWidget" name="servlistWidget">
@@ -4136,32 +4067,46 @@ outline: 0;</string>
       <rect>
        <x>100</x>
        <y>60</y>
-       <width>691</width>
-       <height>531</height>
+       <width>661</width>
+       <height>611</height>
       </rect>
      </property>
      <property name="cursor" stdset="0">
       <cursorShape>ArrowCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">outline: 0;</string>
+      <string notr="true">outline: 0;
+border-width: 3 px;
+border-color: black</string>
      </property>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustToContents</enum>
      </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>true</bool>
+     </property>
+     <property name="dragDropMode">
+      <enum>QAbstractItemView::NoDragDrop</enum>
+     </property>
+     <property name="defaultDropAction">
+      <enum>Qt::CopyAction</enum>
+     </property>
      <property name="iconSize">
       <size>
-       <width>150</width>
-       <height>100</height>
+       <width>190</width>
+       <height>170</height>
       </size>
      </property>
      <property name="textElideMode">
       <enum>Qt::ElideNone</enum>
      </property>
+     <property name="movement">
+      <enum>QListView::Static</enum>
+     </property>
      <property name="gridSize">
       <size>
-       <width>170</width>
-       <height>100</height>
+       <width>210</width>
+       <height>170</height>
       </size>
      </property>
      <property name="viewMode">
@@ -4369,7 +4314,7 @@ border-style:solid;
 outline: 0;</string>
      </property>
      <property name="text">
-      <string>Повернутись</string>
+      <string>Скасувати</string>
      </property>
     </widget>
     <widget class="QPushButton" name="charity_continue">
@@ -4506,26 +4451,10 @@ border-radius: 8px;
   </widget>
  </widget>
  <resources>
-  <include location="resources1.qrc"/>
   <include location="resources.qrc"/>
+  <include location="resources1.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>mob_lable</sender>
-   <signal>clicked()</signal>
-   <receiver>mob_button</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>105</x>
-     <y>283</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>103</x>
-     <y>226</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>card_lable</sender>
    <signal>clicked()</signal>
@@ -4539,54 +4468,6 @@ border-radius: 8px;
     <hint type="destinationlabel">
      <x>308</x>
      <y>223</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>vodokanal_lable</sender>
-   <signal>clicked()</signal>
-   <receiver>vodokanal_button</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>479</x>
-     <y>273</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>477</x>
-     <y>223</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>steam_lable</sender>
-   <signal>clicked()</signal>
-   <receiver>steam_button</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>716</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>705</x>
-     <y>210</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>mob_folder_label</sender>
-   <signal>clicked()</signal>
-   <receiver>mob_folder_button</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>148</x>
-     <y>478</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>145</x>
-     <y>431</y>
     </hint>
    </hints>
   </connection>
@@ -4623,18 +4504,50 @@ border-radius: 8px;
    </hints>
   </connection>
   <connection>
-   <sender>game_folder_label</sender>
+   <sender>mob_folder_label</sender>
    <signal>clicked()</signal>
-   <receiver>game_folder_button</receiver>
+   <receiver>mob_folder_button</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>260</x>
-     <y>664</y>
+     <x>148</x>
+     <y>478</y>
     </hint>
     <hint type="destinationlabel">
-     <x>261</x>
-     <y>615</y>
+     <x>145</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>vodokanal_lable</sender>
+   <signal>clicked()</signal>
+   <receiver>vodokanal_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>479</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>477</x>
+     <y>223</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mob_lable</sender>
+   <signal>clicked()</signal>
+   <receiver>mob_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>105</x>
+     <y>283</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>103</x>
+     <y>226</y>
     </hint>
    </hints>
   </connection>
@@ -4651,6 +4564,38 @@ border-radius: 8px;
     <hint type="destinationlabel">
      <x>544</x>
      <y>610</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>steam_lable</sender>
+   <signal>clicked()</signal>
+   <receiver>steam_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>716</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>705</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>game_folder_label</sender>
+   <signal>clicked()</signal>
+   <receiver>game_folder_button</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>260</x>
+     <y>664</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>261</x>
+     <y>615</y>
     </hint>
    </hints>
   </connection>
