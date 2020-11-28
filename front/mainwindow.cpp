@@ -156,7 +156,10 @@ void MainWindow::on_go_to_payment_page_clicked()
 				servMan->setRecipientMobileAccount(ui->account_number->text().toLocal8Bit().constData());
 				break;
 			case ServiceType::Banking:
-				servMan->setRecipientEWalletAccount(ui->account_number->text().toLocal8Bit().constData());
+				if (QString::fromLocal8Bit(servMan->getCurrentServiceName().c_str()).endsWith("ПриватБанк"))
+					servMan->setRecipientPaycard(ui->account_number->text().toLocal8Bit().constData());
+				else
+					servMan->setRecipientEWalletAccount(ui->account_number->text().toLocal8Bit().constData());
 				break;
 			case ServiceType::Utilities:
 				name = ui->account_number->text();
