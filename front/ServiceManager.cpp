@@ -247,6 +247,8 @@ void ServiceManager::processTransfer(const double& amount) {
 		return;
 	}
 	if (amount > 50000.0) throw TransferError(QString::fromUtf8(u8"Надто велика сума переказу. Будь ласка, введіть суму менше 50000 грн."));
+	//std::vector<PrivateAccount> kekw =database->getPrivateRepAcc().getAll();
+	//PrivateAccount hll= database->getPrivateRepAcc().getById
 	PrivateAccount senderAccount = database->getPrivateRepAcc().getById(currentSenderPaycard->getAccountId());
 	if (amount > senderAccount.getBalance()) throw TransferError(QString::fromUtf8(u8"Недостатньо коштів на картці. Будь ласка, введіть меншу суму"));
 	senderAccount.dismount(amount, "UAH");
@@ -255,7 +257,7 @@ void ServiceManager::processTransfer(const double& amount) {
 }
 
 double ServiceManager::realTransferredAmount(const double& amount) {
-	double commission = amount / 100.0 * commissionPercentage();
+	double commission = amount * commissionPercentage();
 	if (commission > maxCommission()) return amount - maxCommission();
 	return amount - commission;
 }

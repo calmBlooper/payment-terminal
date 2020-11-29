@@ -167,7 +167,8 @@ void MainWindow::on_go_to_payment_page_clicked()
 				servMan->setRecipientPublicAccount(name.toLocal8Bit().constData(), address.toLocal8Bit().constData());
 				break;
 			case ServiceType::Gaming:
-				servMan->setRecipientPublicAccount(ui->account_number->text().toLocal8Bit().constData());
+				servMan->setRecipientEWalletAccount(ui->account_number->text().toLocal8Bit().constData());
+				//servMan->setRecipientPublicAccount(ui->account_number->text().toLocal8Bit().constData());
 				break;
 
 			}
