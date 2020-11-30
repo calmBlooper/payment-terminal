@@ -30,7 +30,6 @@ void DBManager::createTables() {
 void DBManager::fillUpTheTables() {
 	PrivateAccount pa1(1, "UAH", 100.0, "Біба", "Боба");
 	PrivateAccount pa2(2, "UAH", 999000.0, "Микола", "Шевчук");
-	//PrivateAccount pa3(333, "UAH", 1000.0, "Alex", "Sad");
 	PrivateAccount pa3(3, "UAH", 1000.0, "Alex", "Sad");
 	PrivateAccount pa4(4, "UAH", 100000.0, "Андрій", "Степаненко");
 	privateRep.insert(pa1);
